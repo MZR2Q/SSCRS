@@ -16,12 +16,12 @@ canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
 .pillnav a.on{color:#fff}
 .pillnav .cta{background:#fff;color:#0B1A33;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13.5px}
 .view{position:relative;z-index:1;display:none}.view.act{display:block}
-.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:64px}
+.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:44px}
 .hero .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:20px}
-.hero h1{font-weight:300;font-size:56px;line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.hero h1{font-weight:300;font-size:46px;line-height:1.05;letter-spacing:-.02em;max-width:18ch}
 .hero h1 b{font-weight:500}
-.hero .sub{font-size:22px;color:var(--dim);margin:18px 0 10px}
-.hero p{font-size:16px;color:var(--mute);max-width:52ch;margin-bottom:30px}
+.hero .sub{font-size:21px;color:var(--dim);margin:14px 0 8px}
+.hero p{font-size:15.5px;color:var(--mute);max-width:52ch;margin-bottom:22px}
 .btns{display:flex;gap:12px;align-items:center}
 .btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;font-size:14.5px;font-weight:500;transition:none}
 .btn-w{background:#fff;color:#0B1A33}.btn-g{background:var(--glass);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(10px)}
@@ -75,8 +75,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
 
 <div class="view act" id="v-home">
  <section class="hero">
-  <div class="k rv" data-rv="2.4">Saudi Society of Colon &amp; Rectal Surgery · est. 2009</div>
-  <h1 class="rv" data-rv="2.7">The national home for <b>colorectal surgical excellence</b></h1>
+    <h1 class="rv" data-rv="2.7">The national home for <b>colorectal surgical excellence</b></h1>
   <div class="sub ar rv" data-rv="3.1">الجمعية السعودية لجراحة القولون والمستقيم</div>
   <p class="rv" data-rv="3.35">Education, research and public awareness — organised by the surgeons of the Kingdom, for the Kingdom.</p>
   <div class="btns rv" data-rv="3.6"><a class="btn btn-w">Become a member</a><a class="btn btn-g">Annual Forum 2026 →</a></div>
@@ -126,7 +125,7 @@ $('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" 
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const seg=(T,t0,d)=>clamp((T-t0)/d);
-const W=innerWidth,H=innerHeight;
+const W=innerWidth,H=innerHeight;const SEALMODE=/seal=1/.test(location.search);if(SEALMODE){document.querySelectorAll('.view,#nav,#end,.vignette').forEach(e=>e.style.display='none');}
 
 // views & scroll
 const TB=24.6, TM=33.5, TE=39.6;              // transitions: board, membership, end
@@ -148,9 +147,12 @@ const c=$('#fx'),x=c.getContext('2d');const DPR=Math.min(devicePixelRatio||1,2);
 let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
 const pts=[],stray=[];let ready=false;
 const img=new Image();img.src='assets/seal.png';img.onload=()=>{
- const s=190,o=document.createElement('canvas');o.width=o.height=s;const ox=o.getContext('2d');ox.drawImage(img,0,0,s,s);const d=ox.getImageData(0,0,s,s).data;
- for(let j=0;j<s;j++)for(let i=0;i<s;i++){const k=(j*s+i)*4;if(d[k+3]<80)continue;const r=d[k],g=d[k+1],b=d[k+2];if((r+g+b)/3>235)continue;if(rnd()<.5)continue;
-  const isG=g>r+25&&g>b+10;pts.push({u:(i/s-.5)*2,v:(j/s-.5)*2,sx:rnd()*W*1.4-W*.2,sy:rnd()*H*1.4-H*.2,ph:rnd()*6.283,sz:(rnd()*1.2+.6),g:isG,a:.55+rnd()*.45});}
+ const s=300,o=document.createElement('canvas');o.width=o.height=s;const ox=o.getContext('2d');ox.imageSmoothingQuality='high';ox.drawImage(img,0,0,s,s);const d=ox.getImageData(0,0,s,s).data;
+ for(let j=0;j<s;j++)for(let i=0;i<s;i++){const k=(j*s+i)*4;const A=d[k+3];if(A<60)continue;let r=d[k],g=d[k+1],b=d[k+2];const lum=(r*.299+g*.587+b*.114);
+  let col,al,sz;
+  if(lum>228){col='222,232,255';al=.52*(A/255);sz=1.3;}                     // white ring + highlights -> soft luminous dots
+  else{const f=1.10+(1-lum/255)*.75;r=Math.min(255,r*f);g=Math.min(255,g*f);b=Math.min(255,b*f);col=`${r|0},${g|0},${b|0}`;al=(.82+.18*(1-lum/255))*(A/255);sz=1.55;}
+  pts.push({u:(i/s-.5)*2,v:(j/s-.5)*2,sx:rnd()*W*1.4-W*.2,sy:rnd()*H*1.4-H*.2,ph:rnd()*6.283,sz,col,al});}
  for(let i=0;i<1600;i++)stray.push({x:rnd()*W,y:rnd()*H,a:rnd()*.22+.04,r:rnd()*1.1+.2,ph:rnd()*6.283,sp:rnd()*6+2});
  ready=true;};
 function drawParticles(T,scrollY,view,cur){
@@ -159,22 +161,24 @@ function drawParticles(T,scrollY,view,cur){
  const p1=eo(seg(T,0.6,2.6));                       // scatter -> seal
  const toTop=eo(seg(T,TB-0.2,1.5));                 // seal -> top half ring
  const toEnd=eo(seg(T,TE,1.6));                     // -> back to centre, smaller
- const L1=[W/2,H*.31,Math.min(H*.33,290)],L2=[W/2,-70,250],L3=[W/2,H*.40,260];
+ const L1=SEALMODE?[W/2,H/2,Math.min(H*.44,400)]:[W/2,H*.345,Math.min(H*.258,232)],L2=[W/2,-70,250],L3=[W/2,H*.40,260];
  let cx=L1[0]+(L2[0]-L1[0])*toTop,cy=L1[1]+(L2[1]-L1[1])*toTop,R=L1[2]+(L2[2]-L1[2])*toTop;
  cx+= (L3[0]-cx)*toEnd; cy+=(L3[1]-cy)*toEnd; R+=(L3[2]-R)*toEnd;
  const k=(view==='home'?clamp(scrollY/1000)*0.9:0)*(1-toTop);      // spread with scroll on home
  const par=view==='home'?-scrollY*0.55:0;
  const alphaK=1-k*0.85;
+ const gcy0=cy+par;const gr=x.createRadialGradient(cx,gcy0,R*.15,cx,gcy0,R*1.7);gr.addColorStop(0,`rgba(91,157,255,${.26*p1*alphaK})`);gr.addColorStop(1,'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,W,H);
+ x.globalCompositeOperation='source-over';
+ const br=.9+.1*Math.sin(T*.8);
  for(const p of pts){
   let tx=cx+p.u*R, ty=cy+p.v*R+par;
   tx=cx+(tx-cx)*(1+k); ty=(cy+par)+(ty-(cy+par))*(1+k);
   let px=p.sx+(tx-p.sx)*p1, py=p.sy+(ty-p.sy)*p1;
-  px+=Math.sin(T*1.1+p.ph)*2.2; py+=Math.cos(T*.9+p.ph)*2.2;
+  const wob=(1-p1)*6+0.5;px+=Math.sin(T*1.1+p.ph)*wob; py+=Math.cos(T*.9+p.ph)*wob;
   if(cur){const dx=px-cur[0],dy=py-cur[1],d=Math.hypot(dx,dy);if(d<150&&d>0.1){const f=(150-d)/150*34;px+=dx/d*f;py+=dy/d*f;}}
-  const a=p.a*alphaK*(0.35+0.65*p1);
-  x.fillStyle=p.g?`rgba(127,224,138,${a})`:`rgba(110,165,255,${a*.9})`;x.beginPath();x.arc(px,py,p.sz*(1+toEnd*.2),0,7);x.fill();}
- const gcy=cy+par;const gr=x.createRadialGradient(cx,gcy,R*.2,cx,gcy,R*1.7);gr.addColorStop(0,`rgba(91,157,255,${.24*p1*alphaK})`);gr.addColorStop(1,'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,W,H);
- x.globalCompositeOperation='source-over';}
+  const a=p.al*alphaK*(0.35+0.65*p1)*br;
+  x.fillStyle=`rgba(${p.col},${a})`;const z=p.sz*(R/290)*(1+toEnd*.1);x.fillRect(px-z/2,py-z/2,z,z);}
+}
 
 // ---------- frame ----------
 const rvs=[...document.querySelectorAll('.rv')];
