@@ -1,0 +1,25 @@
+    <!-- ============================================================
+         THE SOCIETY SEAL, as vector.
+
+         The ring, its rules and all of its lettering are true vector,
+         so they stay crisp at every size on the page. The emblem in
+         the middle — the colon, palm and swords — is the artwork from
+         the supplied file, clipped to the inner circle.
+
+         Defined once here and referenced with <use> wherever the seal
+         appears. It is inline rather than an external .svg file so
+         that it inherits the page's webfonts.
+         ============================================================ -->
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+      <defs>
+        <!-- The official seal supplied by the society (SSCRS Logo.pdf),
+             extracted at its native 697px and made transparent. Every
+             placement references this one symbol, so swapping the
+             artwork again is a one-line change here.
+             It is raster, not vector: the PDF contained a JPEG. -->
+        <symbol id="sscrs-seal" viewBox="0 0 512 512">
+          <image href="sscrs-seal.png?v={{V}}" x="0" y="0" width="512" height="512"
+                 preserveAspectRatio="xMidYMid meet" />
+        </symbol>
+      </defs>
+    </svg>
