@@ -58,6 +58,7 @@ section.s{padding:90px 0}
 .price{font-weight:300;font-size:40px;letter-spacing:-.02em;margin:8px 0 2px}.per{font-size:13px;color:var(--mute);margin-bottom:16px}
 .checks li{font-size:14px;color:var(--dim);padding-left:18px;position:relative;margin-bottom:7px}.checks li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--green)}
 .hl{box-shadow:0 0 0 1px rgba(91,157,255,.6),0 0 60px rgba(91,157,255,.18)}
+.doc{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-top:1px solid var(--line);font-size:15px;position:relative;z-index:1}.doc:first-child{border-top:0}.doc span{color:var(--mute);font-size:13px}.doc.ev{display:grid;grid-template-columns:72px 1fr;gap:22px;text-align:left}
 .band{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:44px 48px}
 .band h3{font-weight:300;font-size:34px;letter-spacing:-.02em;margin:8px 0 10px}
 .band p{color:var(--dim);font-size:15px}
@@ -71,7 +72,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
 #end h2{font-weight:300;font-size:40px;letter-spacing:-.02em}#end .ar{font-size:22px;color:var(--dim);margin-top:12px}#end .k{font-size:12px;letter-spacing:.24em;color:var(--mute);margin-top:22px;text-transform:uppercase}
 </style></head><body>
 <canvas id="fx"></canvas><div class="vignette"></div>
-<div class="top rv" id="nav" data-rv="1.9" data-dy="-16"><nav class="pillnav"><a class="lock"><img src="assets/seal.png">SSCRS</a><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a>Education</a><a class="ar">العربية</a><a class="cta">Join</a></nav></div>
+<div class="top rv" id="nav" data-rv="1.9" data-dy="-16"><nav class="pillnav"><a class="lock"><img src="assets/seal.png">SSCRS</a><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a id="n-education">Education</a><a class="ar">العربية</a><a class="cta">Join</a></nav></div>
 
 <div class="view act" id="v-home">
  <section class="hero">
@@ -82,30 +83,55 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
   <div class="scroll rv" data-rv="4.4">SCROLL</div>
  </section>
  <section class="s" id="glance"><div class="wrap"><div class="g g4">
-  <div class="glass rv" data-rv="10.4"><div class="ic"><i></i></div><h4>Annual Forum</h4><p>The Kingdom's premier colorectal surgery gathering.</p><span class="a">Details →</span></div>
-  <div class="glass rv" data-rv="10.55"><div class="ic"><i></i></div><h4>Membership</h4><p>Affiliate, regular and honorary categories.</p><span class="a">Categories →</span></div>
-  <div class="glass rv" data-rv="10.7"><div class="ic"><i></i></div><h4>Education</h4><p>Accredited CME, workshops and the fellowship.</p><span class="a">Activities →</span></div>
-  <div class="glass rv" data-rv="10.85"><div class="ic"><i></i></div><h4>Committees &amp; regulations</h4><p>The committees, bylaws and forms.</p><span class="a">Documents →</span></div>
+  <div class="glass rv" data-rv="10.2"><div class="ic"><i></i></div><h4>Annual Forum</h4><p>The Kingdom's premier colorectal surgery gathering.</p><span class="a">Details →</span></div>
+  <div class="glass rv" data-rv="10.35"><div class="ic"><i></i></div><h4>Membership</h4><p>Affiliate, regular and honorary categories.</p><span class="a">Categories →</span></div>
+  <div class="glass rv" data-rv="10.5"><div class="ic"><i></i></div><h4>Education</h4><p>Accredited CME, workshops and the fellowship.</p><span class="a">Activities →</span></div>
+  <div class="glass rv" data-rv="10.65"><div class="ic"><i></i></div><h4>Committees &amp; regulations</h4><p>The committees, bylaws and forms.</p><span class="a">Documents →</span></div>
  </div></div></section>
- <section class="s" id="numbers"><div class="wrap"><div class="sh rv" data-rv="14.3"><div class="k">The society in numbers</div><h2>Measured impact, proven trust</h2></div>
-  <div class="glass stats rv" data-rv="14.6"><div class="stat"><b>2009</b><span>Established</span></div><div class="stat"><b class="cnt" data-v="500" data-s="+">0</b><span>Members</span></div><div class="stat"><b class="cnt" data-v="6">0</b><span>Committees</span></div><div class="stat"><b class="cnt" data-v="8">0</b><span>Board</span></div><div class="stat"><b class="cnt" data-v="15" data-s="+">0</b><span>Years</span></div></div></div></section>
- <section class="s" id="board"><div class="wrap"><div class="sh rv" data-rv="18.2"><div class="k">Leadership</div><h2>Board members</h2></div>
-  <div class="glass chair rv" data-rv="18.5" id="chairc"></div>
-  <div class="g g3" style="margin-top:16px" id="mems"></div></div></section>
- <section class="s" id="forum"><div class="wrap"><div class="glass band rv" data-rv="22.1"><div><div class="m" style="font-size:12px;color:var(--green);letter-spacing:.12em;text-transform:uppercase">Annual Forum · 15–17 April 2026 · Riyadh</div><h3>SSCRS Annual Forum 2026 — registration is open</h3><p>Three days of keynote lectures, live surgery and workshops.</p></div><a class="btn btn-w">Register</a></div></div></section>
+ <section class="s" id="numbers"><div class="wrap"><div class="sh rv" data-rv="13.9"><div class="k">The society in numbers</div><h2>Measured impact, proven trust</h2></div>
+  <div class="glass stats rv" data-rv="14.15"><div class="stat"><b>2009</b><span>Established</span></div><div class="stat"><b class="cnt" data-v="500" data-s="+">0</b><span>Members</span></div><div class="stat"><b class="cnt" data-v="6">0</b><span>Committees</span></div><div class="stat"><b class="cnt" data-v="8">0</b><span>Board</span></div><div class="stat"><b class="cnt" data-v="15" data-s="+">0</b><span>Years</span></div></div></div></section>
+ <section class="s" id="forum"><div class="wrap"><div class="glass band rv" data-rv="17.5"><div><div class="m" style="font-size:12px;color:var(--green);letter-spacing:.12em;text-transform:uppercase">Annual Forum · 15–17 April 2026 · Riyadh</div><h3>SSCRS Annual Forum 2026 — registration is open</h3><p>Three days of keynote lectures, live surgery and workshops.</p></div><a class="btn btn-w">Register</a></div></div></section>
  <footer><div class="wrap"><span>© 2026 Saudi Society of Colon &amp; Rectal Surgery</span><span class="ar">الجمعية السعودية لجراحة القولون والمستقيم</span></div></footer>
 </div>
 
 <div class="view" id="v-board"><div class="wrap">
- <div class="ph"><div class="k rv" data-rv="25.2">Leadership</div><h1 class="rv" data-rv="25.35">Board Members</h1><p class="rv" data-rv="25.5">Distinguished surgeons and healthcare leaders from across Saudi Arabia.</p></div>
- <div class="glass chair rv" data-rv="25.8" id="chairb"></div>
+ <div class="ph"><div class="k rv" data-rv="26.8">Leadership</div><h1 class="rv" data-rv="26.95">Board Members</h1><p class="rv" data-rv="27.1">Distinguished surgeons and healthcare leaders from across Saudi Arabia.</p></div>
+ <div class="glass chair rv" data-rv="27.4" id="chairb"></div>
  <div class="g g3" style="margin-top:16px" id="memsb"></div>
  <div style="height:160px"></div>
 </div></div>
 
 <div class="view" id="v-membership"><div class="wrap">
- <div class="ph"><div class="k rv" data-rv="34.1">Membership</div><h1 class="rv" data-rv="34.25">Join the society</h1><p class="rv" data-rv="34.4">Three categories under the Basic Bylaw.</p></div>
+ <div class="ph"><div class="k rv" data-rv="33.2">Membership</div><h1 class="rv" data-rv="33.35">Join the society</h1><p class="rv" data-rv="33.5">Three categories under the Basic Bylaw.</p></div>
  <div class="g g3" id="tiers"></div>
+ <div style="height:200px"></div>
+</div></div>
+
+
+<div class="view" id="v-about"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="20.2">About the Society</div><h1 class="rv" data-rv="20.35">Founded by decree, built by surgeons</h1><p class="rv" data-rv="20.5">Established under the Saudi Commission for Health Specialties to organize scientific work, strengthen fellowship, and raise public awareness of colorectal health.</p></div>
+ <div class="g g4" id="pillars"></div>
+ <div class="glass stats rv" data-rv="21.6" style="margin-top:16px"><div class="stat"><b>2009</b><span>Established</span></div><div class="stat"><b class="cnt2" data-v="500" data-s="+">0</b><span>Members</span></div><div class="stat"><b class="cnt2" data-v="6">0</b><span>Committees</span></div><div class="stat"><b class="cnt2" data-v="8">0</b><span>Board</span></div><div class="stat"><b class="cnt2" data-v="15" data-s="+">0</b><span>Years</span></div></div>
+ <div class="g" style="grid-template-columns:1fr 1fr;margin-top:16px">
+  <div class="glass rv" data-rv="24.2"><div class="m">Vision</div><h4 style="font-size:24px;font-weight:300">The trusted national reference</h4><p>To be the premier national authority for colorectal surgical excellence in Saudi Arabia — setting the standard for practice, education, and research.</p></div>
+  <div class="glass rv" data-rv="24.35"><div class="m">Mission</div><h4 style="font-size:24px;font-weight:300">Empower &amp; protect</h4><p>To support surgical education, promote public awareness, facilitate research exchange, and foster professional collaboration across the Kingdom.</p></div>
+ </div>
+ <div style="height:160px"></div>
+</div></div>
+
+<div class="view" id="v-committees"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="37.6">Governance</div><h1 class="rv" data-rv="37.75">Committees &amp; Regulations</h1><p class="rv" data-rv="37.9">The committees that carry the work, and the documents that govern it.</p></div>
+ <div class="g g3" id="coms"></div>
+ <div class="sh rv" data-rv="41.0" style="margin:70px 0 24px"><div class="k">Documents</div><h2>Regulations library</h2></div>
+ <div class="glass rv" data-rv="41.3" style="padding:0" id="docs"></div>
+ <div style="height:160px"></div>
+</div></div>
+
+<div class="view" id="v-education"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="43.8">Education &amp; Conferences</div><h1 class="rv" data-rv="43.95">Learn with the society</h1><p class="rv" data-rv="44.1">Accredited CME, hands-on workshops, webinars and the fellowship — plus the Annual Forum.</p></div>
+ <div class="glass band rv" data-rv="44.5"><div><div class="m" style="font-size:12px;color:var(--green);letter-spacing:.12em;text-transform:uppercase">Annual Forum · 15–17 April 2026 · Riyadh</div><h3>SSCRS Annual Forum 2026 — registration is open</h3><p>Three days of keynote lectures, live surgery demonstrations and professional workshops.</p></div><a class="btn btn-w">Register</a></div>
+ <div class="sh rv" data-rv="46.6" style="margin:70px 0 24px"><div class="k">Upcoming</div><h2>Activities</h2></div>
+ <div class="glass rv" data-rv="46.9" style="padding:0" id="events"></div>
  <div style="height:200px"></div>
 </div></div>
 
@@ -116,10 +142,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
 <script>
 const D=window.D,m=D.members,$=s=>document.querySelector(s);
 const chairHTML=`<img src="${m[0].img}"><div><span class="tag" style="margin:0">${m[0].r}</span><h2>${m[0].n}</h2><div class="r">${m[0].t}</div><p>${m[0].bio}</p><span class="tag">Founding member</span><span class="tag">Honorary Fellow, ASCRS</span><span class="tag">WHO IARC Ethics Committee</span></div>`;
-$('#chairc').innerHTML=chairHTML;$('#chairb').innerHTML=chairHTML;
+$('#chairb').innerHTML=chairHTML;
 const memHTML=(t0,step)=>m.slice(1).map((x,i)=>`<div class="glass member rv" data-rv="${(t0+i*step).toFixed(2)}"><img src="${x.img}"><h4>${x.n}</h4><div class="r">${x.t}</div><p>${x.i}</p></div>`).join('');
-$('#mems').innerHTML=memHTML(18.8,.15);$('#memsb').innerHTML=memHTML(26.1,.15);
-$('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" data-rv="${(34.7+i*.15).toFixed(2)}"><div class="m">${t[0]}</div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn ${i==1?'btn-w':'btn-g'}" style="margin-top:18px;height:42px">Apply</a></div>`).join('');
+$('#memsb').innerHTML=memHTML(27.7,.15);
+$('#pillars').innerHTML=D.pillars.map((p,i)=>`<div class="glass rv" data-rv="${(20.9+i*.12).toFixed(2)}"><div class="ic"><i></i></div><h4>${p[0]}</h4></div>`).join('');
+$('#coms').innerHTML=D.coms.map((c,i)=>`<div class="glass rv" data-rv="${(38.3+i*.12).toFixed(2)}"><div class="m">${c[2]}</div><h4>${c[0]}</h4><p>${c[3]}</p><p style="margin-top:12px;font-size:13px">Chair · <span style="color:var(--ink)">To be announced</span></p></div>`).join('');
+$('#docs').innerHTML=D.docs.map(d=>`<div class="doc"><div>${d[0]}</div><span>${d[2]} · PDF ↓</span></div>`).join('');
+$('#events').innerHTML=[['22','JAN','Laparoscopic colorectal skills workshop','Hands-on · King Fahad Medical City, Riyadh · 8 CME hours'],['05','FEB','Webinar: colorectal cancer screening in practice','Online · 19:00–20:30 · 1.5 CME hours'],['01','MAR','Colorectal Cancer Awareness Month — campaign launch','Riyadh, Jeddah, Dammam · with the Ministry of Health']].map(e=>`<div class="doc ev"><div style="text-align:center"><b style="display:block;font-weight:300;font-size:30px;line-height:1">${e[0]}</b><span style="font-size:11px;letter-spacing:.14em;color:var(--green)">${e[1]}</span></div><div><div style="font-size:16px;font-weight:400">${e[2]}</div><span>${e[3]}</span></div></div>`).join('');
+$('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" data-rv="${(33.8+i*.15).toFixed(2)}"><div class="m">${t[0]}</div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn ${i==1?'btn-w':'btn-g'}" style="margin-top:18px;height:42px">Apply</a></div>`).join('');
 
 // ---------- timeline helpers ----------
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
@@ -128,17 +158,26 @@ const seg=(T,t0,d)=>clamp((T-t0)/d);
 const W=innerWidth,H=innerHeight;const SEALMODE=/seal=1/.test(location.search);if(SEALMODE){document.querySelectorAll('.view,#nav,#end,.vignette').forEach(e=>e.style.display='none');}
 
 // views & scroll
-const TB=24.6, TM=33.5, TE=39.6;              // transitions: board, membership, end
+const TA=19.6, TB=26.2, TM=32.6, TC=37.0, TD=43.2, TE=49.4;   // about, board, membership, committees, education, end
+const TRANS=[TA,TB,TM,TC,TD];
 function scrollTarget(id){const el=document.getElementById(id);return el?el.offsetTop-96:0}
-const homeKeys=[[0,0],[7.2,0],[11.6,'glance'],[15.4,'numbers'],[19.2,'board'],[23.0,'forum'],[TB,'forum']];
-const boardKeys=[[TB,0],[29.0,0],[32.6,460],[TM,460]];
+const KEYS={
+ home:[[0,0],[7.2,0],[11.4,'glance'],[15.0,'numbers'],[18.4,'forum'],[TA,'forum']],
+ about:[[TA,0],[23.4,0],[25.3,360],[TB,360]],
+ board:[[TB,0],[29.6,0],[31.7,440],[TM,440]],
+ membership:[[TM,0],[TC,0]],
+ committees:[[TC,0],[40.2,0],[42.3,560],[TD,560]],
+ education:[[TD,0],[46.2,0],[47.9,300],[TE+3,300]]};
 function keyScroll(keys,T){let y=0;for(let i=0;i<keys.length-1;i++){const[a,ya]=keys[i],[b,yb]=keys[i+1];const A=typeof ya==='string'?scrollTarget(ya):ya,B=typeof yb==='string'?scrollTarget(yb):yb;if(T<=a)return A;if(T<b)return A+(B-A)*eio((T-a)/(b-a));y=B}return y}
-function activeView(T){return T<TB+0.35?'home':T<TM+0.35?'board':'membership'}
+function activeView(T){return T<TA+0.35?'home':T<TB+0.35?'about':T<TM+0.35?'board':T<TC+0.35?'membership':T<TD+0.35?'committees':'education'}
 function setView(v){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('act',e.id==='v-'+v));document.querySelectorAll('.pillnav a').forEach(a=>a.classList.remove('on'));if(v!=='home'){const a=$('#n-'+v);if(a)a.classList.add('on')}}
 
 // cursor path: [t,x,y] or [t,'#id']
-const path=[[0,1520,520],[4.4,1520,540],[6.0,900,430],[6.9,690,320],[7.8,760,520],[12.2,700,560],[13.4,760,560],[16.8,980,560],[19.6,470,620],[21.2,480,640],[22.9,1010,700],[24.0,'#n-board'],[TB+0.9,'#n-board'],[28.4,520,520],[31.2,1080,640],[32.9,'#n-membership'],[TM+0.9,'#n-membership'],[35.6,760,330],[37.4,720,560],[39.0,1540,620]];
-const clicks=[TB-0.05,TM-0.05];
+const path=[[0,1520,520],[4.4,1520,540],[6.0,900,400],[6.9,690,300],[7.8,760,520],[11.8,700,560],[13.0,760,560],[16.2,980,560],[18.0,1010,700],
+ [19.0,'#n-about'],[TA+0.9,'#n-about'],[22.0,520,560],[24.0,760,700],[25.6,'#n-board'],[TB+0.9,'#n-board'],[28.6,520,520],[31.0,1080,640],
+ [32.0,'#n-membership'],[TM+0.9,'#n-membership'],[34.6,760,330],[35.6,720,560],[36.4,'#n-committees'],[TC+0.9,'#n-committees'],[39.6,760,600],[41.8,760,560],
+ [42.6,'#n-education'],[TD+0.9,'#n-education'],[45.6,900,560],[47.6,720,640],[49.0,1540,640]];
+const clicks=TRANS.map(t=>t-0.05);
 function pt(p){if(typeof p[1]==='string'){const r=document.querySelector(p[1]).getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]}return[p[1],p[2]]}
 function cursorAt(T){if(T<=path[0][0])return pt(path[0]);for(let i=0;i<path.length-1;i++){const a=path[i],b=path[i+1];if(T>=a[0]&&T<b[0]){const[ax,ay]=pt(a),[bx,by]=pt(b);const k=eio((T-a[0])/(b[0]-a[0]));return[ax+(bx-ax)*k,ay+(by-ay)*k]}}return pt(path[path.length-1])}
 
@@ -159,7 +198,7 @@ function drawParticles(T,scrollY,view,cur){
  x.setTransform(DPR,0,0,DPR,0,0);x.fillStyle='#050B18';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';
  for(const s of stray){const yy=((s.y-T*s.sp)%H+H)%H,xx=s.x+Math.sin(T*.25+s.ph)*10;x.fillStyle=`rgba(120,160,255,${s.a})`;x.beginPath();x.arc(xx,yy,s.r,0,7);x.fill();}
  const p1=eo(seg(T,0.6,2.6));                       // scatter -> seal
- const toTop=eo(seg(T,TB-0.2,1.5));                 // seal -> top half ring
+ const toTop=eo(seg(T,TA-0.2,1.5));                 // seal -> top half ring
  const toEnd=eo(seg(T,TE,1.6));                     // -> back to centre, smaller
  const L1=SEALMODE?[W/2,H/2,Math.min(H*.44,400)]:[W/2,H*.345,Math.min(H*.258,232)],L2=[W/2,-70,250],L3=[W/2,H*.40,260];
  let cx=L1[0]+(L2[0]-L1[0])*toTop,cy=L1[1]+(L2[1]-L1[1])*toTop,R=L1[2]+(L2[2]-L1[2])*toTop;
@@ -184,15 +223,16 @@ function drawParticles(T,scrollY,view,cur){
 const rvs=[...document.querySelectorAll('.rv')];
 window.__frame=function(T){
  const view=activeView(T);setView(view);
- const y=view==='home'?keyScroll(homeKeys,T):view==='board'?keyScroll(boardKeys,T):0;window.scrollTo(0,y);
+ const y=keyScroll(KEYS[view],T);window.scrollTo(0,y);
  // reveals
  for(const el of rvs){const t0=+el.dataset.rv,dy=+(el.dataset.dy||26);const q=eo(seg(T,t0,.8));el.style.opacity=q;el.style.transform=`translateY(${(1-q)*dy}px)`;}
  // hero parallax/fade on scroll
  const hp=clamp(y/520);$('#v-home .hero').style.transform=`translateY(${-y*0.25}px)`;$('#v-home .hero').style.opacity=1-hp;
  // counters
- document.querySelectorAll('.cnt').forEach(el=>{const q=eo(seg(T,14.9,1.5));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
+ document.querySelectorAll('.cnt2').forEach(el=>{const q=eo(seg(T,21.9,1.4));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
+ document.querySelectorAll('.cnt').forEach(el=>{const q=eo(seg(T,14.4,1.5));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
  // transitions fade
- let vis=1;vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,TB-0.45,0.9)));vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,TM-0.45,0.9)));
+ let vis=1;for(const tt of TRANS)vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,tt-0.45,0.9)));
  const endf=eo(seg(T,TE,0.9));vis=Math.min(vis,1-endf);
  document.querySelectorAll('.view').forEach(v=>v.style.opacity=vis);
  $('#nav').style.opacity=Math.min(+$('#nav').style.opacity||0,1-endf);

@@ -28,5 +28,3 @@ dist/
 # Claude Code local preview config
 .claude/
 
-# Rendered walkthrough videos (large binaries; regenerate with docs/proposals/video/record.js)
-docs/*.mp4
