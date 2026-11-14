@@ -1,0 +1,81 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>10</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--sand:#EFE8D8;--sand2:#E6DCC6;--ink:#0B2444;--navy:#1B4C93;--green:#3C7A2A;--mute:#6E6A60;--line:rgba(11,36,68,.16)}
+html,body{background:var(--sand);color:var(--ink);font-family:"IBM Plex Sans Arabic",sans-serif;min-height:100%;position:relative}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .06 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");z-index:0}
+.geo{position:fixed;inset:0;z-index:0;opacity:.18;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='%230B2444' stroke-width='.8'><path d='M60 0L120 60L60 120L0 60Z'/><path d='M60 18L102 60L60 102L18 60Z'/><circle cx='60' cy='60' r='14'/><path d='M0 0L120 120M120 0L0 120'/></svg>");background-size:120px 120px;mask-image:radial-gradient(ellipse at 15% 20%,#000 0%,transparent 60%);-webkit-mask-image:radial-gradient(ellipse at 15% 20%,#000 0%,transparent 60%)}
+.en{font-family:"IBM Plex Sans",sans-serif;direction:ltr;unicode-bidi:isolate}
+.kufi{font-family:"Reem Kufi",sans-serif}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 40px}
+header{height:84px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+header .lock{display:flex;align-items:center;gap:14px;font-family:"Reem Kufi";font-size:19px;font-weight:600}
+header .lock img{width:46px;height:46px}
+nav{display:flex;gap:30px;font-size:15.5px;font-weight:500}nav a.on{color:var(--green)}
+.cta{background:var(--ink);color:var(--sand);padding:11px 20px;border-radius:4px;font-weight:600;font-size:14.5px}
+.hero{padding:70px 0 60px;min-height:calc(100vh - 84px);display:flex;flex-direction:column;justify-content:space-between}
+.hero .k{font-size:13px;letter-spacing:.02em;color:var(--green);font-weight:600;margin-bottom:26px}
+.hero h1{font-family:"Reem Kufi";font-weight:600;font-size:132px;line-height:1.16;color:var(--ink);letter-spacing:-.005em}
+.hero h1 span{color:var(--navy)}
+.hero .row{display:grid;grid-template-columns:1.2fr 1fr auto;gap:40px;align-items:end;margin-top:30px}
+.hero .en.name{font-size:15px;color:var(--mute);line-height:1.5}
+.hero p{font-size:19px;line-height:1.9;max-width:38ch;font-weight:300}
+.btns{display:flex;gap:12px}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:4px;font-weight:600;font-size:15px}
+.btn-p{background:var(--ink);color:var(--sand)}.btn-o{border:1px solid var(--ink);color:var(--ink)}
+.hero .seal{width:150px}
+.ph{padding:64px 0 36px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:1px solid var(--line)}
+.ph h1{font-family:"Reem Kufi";font-weight:600;font-size:96px;line-height:1.2}
+.ph .en{font-size:13px;color:var(--mute);text-align:right;letter-spacing:.04em}
+.ph p{font-size:18px;font-weight:300;line-height:1.9;max-width:56ch;margin-top:10px}
+section{padding:40px 0}
+.g{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:rgba(255,255,255,.55);border:1px solid var(--line);padding:26px;border-radius:4px}
+.card h4{font-family:"Reem Kufi";font-size:24px;font-weight:600;margin-bottom:8px}
+.card p{font-size:14.5px;line-height:1.8;font-weight:300}
+.card .m{font-size:12.5px;color:var(--green);font-weight:600;margin-bottom:10px}
+.chair{display:grid;grid-template-columns:1fr 360px;gap:44px;align-items:center}
+.chair img{aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:4px}
+.chair h2{font-family:"Reem Kufi";font-size:56px;font-weight:600;line-height:1.3;margin:8px 0}
+.chair .r{color:var(--green);font-weight:600;font-size:16px;margin-bottom:14px}
+.chair p{font-size:17px;line-height:1.9;font-weight:300;max-width:56ch}
+.member img{aspect-ratio:4/3.6;object-fit:cover;object-position:top;border-radius:4px;margin-bottom:16px}
+.member .r{color:var(--green);font-size:14px;font-weight:600;margin:2px 0 4px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:28px 20px;border-left:1px solid var(--line)}.stat:last-child{border-left:0}
+.stat b{display:block;font-family:"Reem Kufi";font-size:64px;font-weight:600;line-height:1.1;color:var(--navy)}.stat span{font-size:14px;font-weight:500}
+.price{font-family:"Reem Kufi";font-size:46px;font-weight:600;margin:6px 0 0;color:var(--navy)}.per{font-size:13px;color:var(--mute);margin-bottom:16px}
+.checks li{font-size:15px;padding:9px 0;border-top:1px solid var(--line);font-weight:300}
+.hl{background:var(--ink);color:var(--sand);border-color:var(--ink)}.hl .price{color:#fff}.hl .per{color:rgba(255,255,255,.6)}.hl .checks li{border-color:rgba(255,255,255,.18)}.hl .m{color:#9FD88B}
+.doc{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);font-size:17px}
+.doc span{font-size:13px;color:var(--mute)}.doc b{font-family:"Reem Kufi";font-weight:500;font-size:22px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about img{width:300px;margin:0 auto}
+.about h2{font-family:"Reem Kufi";font-size:48px;font-weight:600;margin-bottom:12px}
+.about p{font-size:17px;line-height:1.9;font-weight:300}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.pillars div{padding:14px 18px;border:1px solid var(--line);font-weight:500;background:rgba(255,255,255,.45)}
+</style></head><body>
+<div class="geo"></div>
+<div class="wrap">
+<header><a class="lock"><img src="assets/seal.png">الجمعية السعودية لجراحة القولون والمستقيم</a><nav><a id="n-about">عن الجمعية</a><a id="n-board">مجلس الإدارة</a><a id="n-membership">العضوية</a><a id="n-committees">اللجان والأنظمة</a><a>التعليم</a><a class="en">English</a></nav><a class="cta">انضم للجمعية</a></header>
+<main id="m"></main></div>
+<script>
+const D=window.D,P=window.PAGE;const n=document.querySelector('#n-'+P);if(n)n.classList.add('on');const m=D.members;
+const T={
+home:`<section class="hero"><div><div class="k">تأسست عام ١٤٣٠هـ — ٢٠٠٩م · الرياض</div><h1>الجمعية السعودية<br>لجراحة <span>القولون والمستقيم</span></h1></div>
+<div class="row"><div><p>البيت الوطني للتميّز في جراحة القولون والمستقيم — تعليمًا وبحثًا وتوعيةً، بأيدي جرّاحي المملكة.</p><div class="btns" style="margin-top:22px"><a class="btn btn-p">انضم للجمعية</a><a class="btn btn-o">الملتقى السنوي ٢٠٢٦</a></div></div><div class="en name">Saudi Society of<br>Colon &amp; Rectal Surgery<br><span style="color:var(--green);font-weight:500">Est. 2009 · 1430H</span></div><img class="seal" src="assets/seal.png"></div></section>`,
+board:`<div class="ph"><div><h1>مجلس الإدارة</h1><p>تقود الجمعية نخبة من الجرّاحين وقادة الرعاية الصحية من مختلف مناطق المملكة.</p></div><div class="en">LEADERSHIP · BOARD MEMBERS</div></div>
+<section><div class="chair"><div><div class="m" style="color:var(--green);font-weight:600;font-size:13px">${m[0].rar}</div><h2>${m[0].ar}</h2><div class="r">${m[0].tar}</div><p>${m[0].bioar}</p><p style="margin-top:10px;font-weight:500">${m[0].iar}</p></div><img src="${m[0].img}"></div></section>
+<section style="padding-top:0"><div class="g g3">${m.slice(1).map(x=>`<div class="card member"><img src="${x.img}"><h4>${x.ar}</h4><div class="r">${x.tar}</div><p>${x.iar}</p></div>`).join('')}</div></section>`,
+about:`<div class="ph"><div><h1>عن الجمعية</h1><p>تأسست الجمعية بقرار من الهيئة السعودية للتخصصات الصحية لتنظيم العمل العلمي، وتعزيز الزمالة المهنية، ورفع الوعي المجتمعي بصحة القولون والمستقيم.</p></div><div class="en">ABOUT · SINCE 2009</div></div>
+<section><div class="about"><div><h2>أربع ركائز</h2><p>المنصة الأولى التي تجمع المختصين والمتدربين والباحثين وشركاء الرعاية الصحية في مجتمع مهني واحد.</p><div class="pillars">${D.pillars.map(p=>`<div>${p[1]}</div>`).join('')}</div></div><img src="assets/seal.png"></div></section>
+<section style="padding-top:0"><div class="stats">${D.stats.map(s=>`<div class="stat"><b>${s[0]}</b><span>${s[2]}</span></div>`).join('')}</div></section>`,
+membership:`<div class="ph"><div><h1>العضوية</h1><p>ثلاث فئات وفق اللائحة الأساسية. اختر الفئة المناسبة لمرحلتك المهنية وقدّم طلبك إلكترونيًا.</p></div><div class="en">MEMBERSHIP · THREE CATEGORIES</div></div>
+<section><div class="g g3">${[['عضوية انتساب','٣٠٠ ريال','سنويًا · للمقيمين والمتدربين',['حضور الأنشطة التعليمية','سعر الأعضاء في الملتقى','النشرة الدورية']],['عضوية عادية','٦٠٠ ريال','سنويًا · للاستشاريين والأخصائيين',['كل مزايا الانتساب','حق التصويت في الجمعية العمومية','أهلية الترشح للمجلس','الإدراج في دليل الأعضاء']],['عضوية فخرية','بدعوة','تُمنح بقرار من المجلس',['تقديرًا للعطاء المتميز','عضوية مدى الحياة','إدراج فخري']]].map((t,i)=>`<div class="card${i==1?' hl':''}"><div class="m">0${i+1}</div><h4>${t[0]}</h4><div class="price">${t[1]}</div><div class="per">${t[2]}</div><ul class="checks">${t[3].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div></section>`,
+committees:`<div class="ph"><div><h1>اللجان والأنظمة</h1><p>اللجان التي تحمل عمل الجمعية، واللوائح والأنظمة التي تحكمه — وفق الفصل الخامس من اللائحة الأساسية.</p></div><div class="en">GOVERNANCE · COMMITTEES</div></div>
+<section><div class="g g3">${D.coms.map((c,i)=>`<div class="card"><div class="m">0${i+1}</div><h4>${c[1]}</h4><p>الرئيس: يُعلن لاحقًا</p></div>`).join('')}</div></section>
+<section style="padding-top:0"><h2 class="kufi" style="font-size:40px;font-weight:600;margin-bottom:10px">مكتبة الأنظمة</h2>${D.docs.map(d=>`<div class="doc"><b>${d[1]}</b><span class="en">${d[2]} · PDF ↓</span></div>`).join('')}</section>`};
+document.querySelector('#m').innerHTML=T[P];
+</script></body></html>

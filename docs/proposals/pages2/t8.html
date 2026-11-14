@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>8</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--cream:#F4F1EA;--ink:#0E1B2E;--navy:#1B4C93;--deep:#0B2444;--green:#3C7A2A;--mint:#DCEBD2;--mute:#6E7787;--line:rgba(14,27,46,.14)}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink);font-family:Manrope,sans-serif}
+.ar{font-family:"Noto Naskh Arabic";direction:rtl}
+.top{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:5;font-size:14px;font-weight:500}
+.top .lock{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}.top .lock img{width:34px;height:34px}
+.top nav{display:flex;gap:24px;color:var(--mute)}.top nav a.on{color:var(--ink);font-weight:700}
+.top .cta{border:1.5px solid var(--ink);padding:8px 16px;border-radius:999px;font-weight:600}
+.track{position:absolute;top:64px;bottom:72px;left:0;display:flex;gap:16px;padding:0 32px;width:max-content}
+.panel{height:100%;width:62vw;border-radius:28px;padding:48px;position:relative;overflow:hidden;flex:none;display:flex;flex-direction:column;justify-content:space-between}
+.panel.w{width:48vw}.panel.n{width:40vw}
+.p-id{background:#fff;border:1px solid var(--line)}
+.p-navy{background:var(--deep);color:#fff}
+.p-green{background:var(--mint)}
+.p-photo{padding:0}.p-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.p-photo .cap{position:absolute;left:0;right:0;bottom:0;padding:28px 32px;background:linear-gradient(transparent,rgba(11,36,68,.85));color:#fff}
+.k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.p-navy .k{color:rgba(255,255,255,.55)}
+h1{font-weight:800;font-size:66px;line-height:1;letter-spacing:-.03em;max-width:14ch}
+h2{font-weight:800;font-size:44px;line-height:1.02;letter-spacing:-.025em}
+.sub{font-size:21px;margin-top:14px;color:var(--navy)}.p-navy .sub{color:rgba(255,255,255,.8)}
+.lead{font-size:16px;color:var(--mute);max-width:46ch;margin-top:14px;line-height:1.6}.p-navy .lead{color:rgba(255,255,255,.7)}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;background:var(--ink);color:#fff;margin-top:22px}
+.p-navy .btn{background:#fff;color:var(--deep)}
+.seal{width:150px;position:absolute;top:44px;right:44px}
+.big{font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.05em}
+.big small{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.6;margin-top:10px}
+.prog{position:fixed;bottom:0;left:0;right:0;height:72px;display:flex;align-items:center;gap:20px;padding:0 32px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.prog .line{flex:1;height:2px;background:var(--line);position:relative}.prog .line i{position:absolute;left:0;top:0;height:2px;width:22%;background:var(--ink)}
+.prog .dots{display:flex;gap:10px}.prog .dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}.prog .dots i.on{background:var(--ink)}
+.list{margin-top:26px}.list div{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);font-size:15px}.p-navy .list div{border-color:rgba(255,255,255,.15)}
+.list b{font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.grid2 div{padding:14px;border:1px solid var(--line);border-radius:14px;font-size:14px;font-weight:600}
+.price{font-weight:800;font-size:56px;letter-spacing:-.04em;margin-top:14px}.per{font-size:13px;color:var(--mute)}
+.p-navy .per{color:rgba(255,255,255,.6)}
+.checks li{padding:10px 0;border-top:1px solid var(--line);font-size:15px}.p-navy .checks li{border-color:rgba(255,255,255,.15)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}.stats b{display:block;font-weight:800;font-size:54px;letter-spacing:-.04em;line-height:1}.stats span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.6}
+</style></head><body>
+<div class="top"><a class="lock"><img src="assets/seal.png">SSCRS</a><nav><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a>Education</a></nav><div style="display:flex;gap:18px;align-items:center"><a class="ar">العربية</a><a class="cta">Join the society</a></div></div>
+<div class="track" id="t"></div>
+<div class="prog"><span id="pl">01 / 05</span><div class="line"><i></i></div><div class="dots" id="dots"></div><span>Scroll →</span></div>
+<script>
+const D=window.D,P=window.PAGE;const n=document.querySelector('#n-'+P);if(n)n.classList.add('on');
+const m=D.members;
+const T={
+home:[`<div class="panel p-id"><img class="seal" src="assets/seal.png"><div><div class="k">Est. 2009 · 1430H</div><h1 style="margin-top:18px">Saudi Society of Colon &amp; Rectal Surgery</h1><div class="sub ar" style="text-align:left">الجمعية السعودية لجراحة القولون والمستقيم</div></div><div><p class="lead">The national home for colorectal surgical excellence.</p><a class="btn">Become a member →</a></div></div>`,
+ `<div class="panel w p-navy"><div class="k">Annual Forum · 15–17 April 2026</div><div><h2>Registration is open.</h2><p class="lead">Three days of lectures, live surgery and workshops in Riyadh.</p><a class="btn">Register</a></div></div>`,
+ `<div class="panel n p-green"><div class="k">In numbers</div><div class="big">500+<small>Active members</small></div></div>`,
+ `<div class="panel w p-id"><div class="k">Membership</div><div><h2>Three categories.</h2><div class="list"><div><b>Affiliate</b><span>SAR 300</span></div><div><b>Regular</b><span>SAR 600</span></div><div><b>Honorary</b><span>By invitation</span></div></div></div></div>`],
+board:[`<div class="panel n p-id"><div class="k">Leadership</div><div><h1 style="font-size:58px">Board Members</h1><p class="lead">Distinguished surgeons and healthcare leaders from across Saudi Arabia.</p></div></div>`,
+ `<div class="panel w p-photo"><img src="${m[0].img}"><div class="cap"><div class="k" style="color:rgba(255,255,255,.7)">${m[0].r}</div><h2 style="font-size:36px;margin-top:6px">${m[0].n}</h2><div style="font-size:14px;opacity:.85;margin-top:4px">${m[0].t}</div></div></div>`,
+ ...m.slice(1).map(x=>`<div class="panel n p-photo"><img src="${x.img}"><div class="cap"><h2 style="font-size:28px">${x.n}</h2><div style="font-size:13px;opacity:.85;margin-top:4px">${x.t} · ${x.i}</div></div></div>`)],
+about:[`<div class="panel w p-id"><img class="seal" src="assets/seal.png"><div><div class="k">About the society</div><h1 style="font-size:54px;margin-top:18px">Founded by decree, built by surgeons.</h1></div><p class="lead">Established under the Saudi Commission for Health Specialties to organize scientific work, strengthen fellowship, and raise public awareness.</p></div>`,
+ `<div class="panel n p-navy"><div class="k">The society in numbers</div><div class="stats">${D.stats.slice(0,4).map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div></div>`,
+ `<div class="panel n p-green"><div class="k">Four pillars</div><div class="grid2">${D.pillars.map(p=>`<div>${p[0]}</div>`).join('')}</div></div>`,
+ `<div class="panel n p-id"><div class="k">Vision</div><h2 style="font-size:34px">The trusted national reference for colorectal surgery.</h2></div>`],
+membership:[`<div class="panel n p-id"><div class="k">Membership</div><div><h1 style="font-size:58px">Join the society</h1><p class="lead">Three categories under the Basic Bylaw.</p></div></div>`,
+ ...D.tiers.map((t,i)=>`<div class="panel n ${i==1?'p-navy':'p-id'}"><div class="k">0${i+1} · ${t[0]}</div><div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks" style="margin-top:18px">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn">Apply</a></div></div>`)],
+committees:[`<div class="panel n p-id"><div class="k">Governance</div><div><h1 style="font-size:54px">Committees &amp; Regulations</h1><p class="lead">Six committees under Chapter 5 of the Basic Bylaw.</p></div></div>`,
+ ...D.coms.slice(0,3).map((c,i)=>`<div class="panel n ${i==1?'p-green':'p-id'}"><div class="k">0${i+1} · ${c[2]}</div><div><h2 style="font-size:34px">${c[0]}</h2><p class="lead">${c[3]}</p><div class="list"><div><b>Chair</b><span>To be announced</span></div></div></div></div>`),
+ `<div class="panel n p-navy"><div class="k">Documents</div><div><h2 style="font-size:34px">Regulations library</h2><div class="list">${D.docs.map(d=>`<div><b>${d[0]}</b><span>${d[2]} ↓</span></div>`).join('')}</div></div></div>`]};
+document.querySelector('#t').innerHTML=T[P].join('');
+const k=T[P].length;document.querySelector('#dots').innerHTML=Array.from({length:k},(_,i)=>`<i class="${i==0?'on':''}"></i>`).join('');document.querySelector('#pl').textContent='01 / 0'+k;
+</script></body></html>

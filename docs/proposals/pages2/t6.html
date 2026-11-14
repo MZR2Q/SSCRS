@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>6</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--bg:#050B18;--ink:#F4F7FF;--dim:rgba(244,247,255,.62);--mute:rgba(244,247,255,.38);--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.1);--glow:#5B9DFF;--green:#7FE08A}
+html,body{background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-weight:300;min-height:100%}
+.ar{font-family:"Noto Naskh Arabic";direction:rtl}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.vignette{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 40%,var(--bg) 100%)}
+.top{position:fixed;top:22px;left:0;right:0;z-index:5;display:flex;justify-content:center;pointer-events:none}
+.pillnav{pointer-events:auto;display:flex;align-items:center;gap:26px;padding:10px 12px 10px 18px;border-radius:999px;background:rgba(10,18,36,.55);border:1px solid var(--line);backdrop-filter:blur(18px);font-size:14px;color:var(--dim);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.pillnav .lock{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:500;font-size:13.5px;margin-right:6px}
+.pillnav .lock img{width:28px;height:28px;border-radius:50%}
+.pillnav a.on{color:#fff}
+.pillnav .cta{background:#fff;color:#0B1A33;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13.5px}
+main{position:relative;z-index:1}
+.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:64px}
+.hero .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:20px}
+.hero h1{font-weight:300;font-size:64px;line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.hero h1 b{font-weight:500}
+.hero .sub{font-size:22px;color:var(--dim);margin:18px 0 10px}
+.hero p{font-size:16px;color:var(--mute);max-width:52ch;margin-bottom:30px}
+.btns{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;font-size:14.5px;font-weight:500}
+.btn-w{background:#fff;color:#0B1A33}.btn-g{background:var(--glass);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(10px)}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;color:var(--mute)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.ph{padding:150px 0 48px;text-align:center}
+.ph .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.ph h1{font-weight:300;font-size:60px;letter-spacing:-.02em;line-height:1.05}
+.ph p{color:var(--dim);max-width:60ch;margin:16px auto 0;font-size:17px}
+.g{display:grid;gap:16px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:26px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.glass:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),transparent 40%);pointer-events:none}
+.glass h4{font-weight:500;font-size:17px;margin-bottom:6px}.glass p{font-size:14px;color:var(--dim)}
+.glass .m{font-size:12px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.member img{border-radius:16px;aspect-ratio:4/3.6;object-fit:cover;object-position:top;margin-bottom:16px;filter:saturate(.85)}
+.member .r{color:var(--glow);font-size:13px;margin:2px 0 4px}
+.chair{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;padding:30px}
+.chair img{border-radius:18px;aspect-ratio:4/5;object-fit:cover}
+.chair h2{font-weight:400;font-size:38px;letter-spacing:-.01em;margin:10px 0 4px}
+.chair .r{color:var(--glow);font-size:15px;margin-bottom:14px}
+.chair p{color:var(--dim);font-size:15.5px;max-width:60ch}
+.tag{display:inline-block;font-size:12px;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:5px 11px;border-radius:999px;margin:12px 6px 0 0}
+.stats{display:flex;justify-content:space-between;padding:10px 20px}
+.stat b{display:block;font-weight:300;font-size:52px;letter-spacing:-.03em;line-height:1}
+.stat span{font-size:13px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.price{font-weight:300;font-size:40px;letter-spacing:-.02em;margin:8px 0 2px}.per{font-size:13px;color:var(--mute);margin-bottom:16px}
+.checks li{font-size:14px;color:var(--dim);padding-left:18px;position:relative;margin-bottom:7px}.checks li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--green)}
+.hl{box-shadow:0 0 0 1px rgba(91,157,255,.6),0 0 60px rgba(91,157,255,.18)}
+.doc{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-top:1px solid var(--line);font-size:15px}
+.doc:first-child{border-top:0}.doc span{color:var(--mute);font-size:13px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.sealbig{width:320px;margin:0 auto;filter:drop-shadow(0 0 40px rgba(91,157,255,.35))}
+section{padding:30px 0}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.pillars div{padding:14px 16px;border:1px solid var(--line);border-radius:14px;font-size:14px;background:var(--glass)}
+</style></head><body>
+<canvas id="fx"></canvas><div class="vignette"></div>
+<div class="top"><nav class="pillnav"><a class="lock"><img src="assets/seal.png">SSCRS</a><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a>Education</a><a class="ar">العربية</a><a class="cta">Join</a></nav></div>
+<main id="m"></main>
+<script>
+const D=window.D,P=window.PAGE;const $=s=>document.querySelector(s);
+const nav=$('#n-'+P);if(nav)nav.classList.add('on');
+const T={
+home:`<section class="hero"><div class="k">Saudi Society of Colon &amp; Rectal Surgery · est. 2009</div><h1>The national home for <b>colorectal surgical excellence</b></h1><div class="sub ar">الجمعية السعودية لجراحة القولون والمستقيم</div><p>Education, research and public awareness — organised by the surgeons of the Kingdom, for the Kingdom.</p><div class="btns"><a class="btn btn-w">Become a member</a><a class="btn btn-g">Annual Forum 2026 →</a></div><div class="scroll">SCROLL</div></section>`,
+board:`<div class="wrap"><div class="ph"><div class="k">Leadership</div><h1>Board Members</h1><p>Distinguished surgeons and healthcare leaders from across Saudi Arabia.</p></div>
+<section><div class="glass chair"><img src="${D.members[0].img}"><div><span class="tag" style="margin:0">${D.members[0].r}</span><h2>${D.members[0].n}</h2><div class="r">${D.members[0].t}</div><p>${D.members[0].bio}</p><span class="tag">Founding member</span><span class="tag">Honorary Fellow, ASCRS</span><span class="tag">WHO IARC Ethics Committee</span></div></div></section>
+<section><div class="g g3">${D.members.slice(1).map(m=>`<div class="glass member"><img src="${m.img}"><h4>${m.n}</h4><div class="r">${m.t}</div><p>${m.i}</p></div>`).join('')}</div></section></div>`,
+about:`<div class="wrap"><div class="ph"><div class="k">About the Society</div><h1>Founded by decree, built by surgeons</h1><p>Established under the Saudi Commission for Health Specialties to organize scientific work, strengthen fellowship, and raise public awareness of colorectal health.</p></div>
+<section><div class="about"><img class="sealbig" src="assets/seal.png"><div><h2 style="font-weight:400;font-size:32px;margin-bottom:10px">Four pillars</h2><p style="color:var(--dim)">The premier platform connecting specialists, trainees, researchers and healthcare partners.</p><div class="pillars">${D.pillars.map(p=>`<div>${p[0]}</div>`).join('')}</div></div></div></section>
+<section><div class="glass stats">${D.stats.map(s=>`<div class="stat"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div></section></div>`,
+membership:`<div class="wrap"><div class="ph"><div class="k">Membership</div><h1>Join the society</h1><p>Three categories under the Basic Bylaw.</p></div>
+<section><div class="g g3">${D.tiers.map((t,i)=>`<div class="glass${i==1?' hl':''}"><div class="m">${t[0]}</div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn ${i==1?'btn-w':'btn-g'}" style="margin-top:18px;height:42px">Apply</a></div>`).join('')}</div></section>
+<section><div class="glass" style="padding:0">${['Dr. Abdullah Al-Qahtani|King Saud University Medical City|Riyadh','Dr. Noura Al-Harbi|King Abdulaziz University Hospital|Jeddah','Dr. Faisal Al-Dossary|King Fahad Specialist Hospital|Dammam','Dr. Sara Al-Mutairi|Security Forces Hospital|Riyadh'].map(r=>{const[a,b,c]=r.split('|');return`<div class="doc"><div>${a}<span style="display:block">${b}</span></div><span>${c}</span></div>`}).join('')}</div></section></div>`,
+committees:`<div class="wrap"><div class="ph"><div class="k">Governance</div><h1>Committees &amp; Regulations</h1><p>The committees that carry the work, and the documents that govern it.</p></div>
+<section><div class="g g3">${D.coms.map(c=>`<div class="glass"><div class="m">${c[2]}</div><h4>${c[0]}</h4><p>${c[3]}</p></div>`).join('')}</div></section>
+<section><div class="glass" style="padding:0">${D.docs.map(d=>`<div class="doc"><div>${d[0]}</div><span>${d[2]} · PDF ↓</span></div>`).join('')}</div></section></div>`};
+$('#m').innerHTML=T[P];
+// particles sampled from the seal
+const c=$('#fx'),x=c.getContext('2d');const dpr=2;c.width=innerWidth*dpr;c.height=innerHeight*dpr;x.scale(dpr,dpr);
+const img=new Image();img.src='assets/seal.png';img.onload=()=>{
+ const o=document.createElement('canvas'),s=180;o.width=o.height=s;const ox=o.getContext('2d');ox.drawImage(img,0,0,s,s);const d=ox.getImageData(0,0,s,s).data;
+ const home=P==='home';const R=home?Math.min(innerHeight*.42,340):220;const cx=innerWidth/2,cy=home?innerHeight*.40:-40;
+ let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+ x.fillStyle='#050B18';x.fillRect(0,0,innerWidth,innerHeight);
+ x.globalCompositeOperation='lighter';
+ for(let i=0;i<2600;i++){const px=rnd()*innerWidth,py=rnd()*innerHeight,a=rnd()*.25+.05,r=rnd()*1.1+.2;x.fillStyle=`rgba(120,160,255,${a})`;x.beginPath();x.arc(px,py,r,0,7);x.fill();}
+ for(let i=0;i<s;i+=1)for(let j=0;j<s;j+=1){const k=(j*s+i)*4;if(d[k+3]<80)continue;const r=d[k],g=d[k+1],b=d[k+2];const lum=(r+g+b)/3;if(lum>235)continue;if(rnd()<.45)continue;
+  const nx=(i/s-.5)*2*R+cx+(rnd()-.5)*3,ny=(j/s-.5)*2*R+cy+(rnd()-.5)*3;const isG=g>r+25&&g>b+10;const col=isG?'127,224,138':'110,165,255';const a=isG?.9:.75;const rad=(rnd()*1.3+.6)*(home?1.15:.9);
+  x.fillStyle=`rgba(${col},${a*(.5+rnd()*.5)})`;x.beginPath();x.arc(nx,ny,rad,0,7);x.fill();}
+ const gr=x.createRadialGradient(cx,cy,R*.2,cx,cy,R*1.6);gr.addColorStop(0,'rgba(91,157,255,.22)');gr.addColorStop(1,'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,innerWidth,innerHeight);
+ document.body.dataset.ready='1';};
+</script></body></html>
