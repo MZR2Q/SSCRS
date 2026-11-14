@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tour8</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--cream:#F4F1EA;--ink:#0E1B2E;--navy:#1B4C93;--deep:#0B2444;--green:#3C7A2A;--mint:#DCEBD2;--mute:#6E7787;--line:rgba(14,27,46,.14);--accent:#1B4C93;--cur:#0E1B2E;--curr:#F4F1EA;--fade:#0B2444;--endfg:#fff}
+html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink);font-family:Manrope,sans-serif}
+.ar{font-family:"Noto Naskh Arabic";direction:rtl}
+.rv{opacity:0}
+.top{position:fixed;top:0;left:0;right:0;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:20;font-size:14px;font-weight:500;background:linear-gradient(var(--cream),rgba(244,241,234,0))}
+.top .lock{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}.top .lock img{width:32px;height:32px}
+.top nav{display:flex;gap:22px;color:var(--mute)}
+.top .cta{border:1.5px solid var(--ink);padding:8px 15px;border-radius:999px;font-weight:600}
+#track{position:absolute;top:62px;bottom:64px;left:0;display:flex;gap:16px;padding:0 32px;will-change:transform}
+.panel{height:100%;flex:none;border-radius:26px;padding:44px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;width:60vw}
+.panel.w{width:46vw}.panel.n{width:38vw}.panel.s{width:30vw}
+.p-id{background:#fff;border:1px solid var(--line)}
+.p-navy{background:var(--deep);color:#fff}
+.p-green{background:var(--mint)}
+.p-photo{padding:0}.p-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.p-photo .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 30px;background:linear-gradient(transparent,rgba(11,36,68,.86));color:#fff}
+.k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.p-navy .k{color:rgba(255,255,255,.55)}
+h1{font-weight:800;font-size:58px;line-height:1;letter-spacing:-.03em;max-width:14ch}
+h2{font-weight:800;font-size:40px;line-height:1.02;letter-spacing:-.025em}
+.sub{font-size:20px;margin-top:12px;color:var(--navy)}.p-navy .sub{color:rgba(255,255,255,.8)}
+.lead{font-size:15.5px;color:var(--mute);max-width:46ch;margin-top:12px;line-height:1.6}.p-navy .lead{color:rgba(255,255,255,.72)}
+.btn{display:inline-flex;align-items:center;height:46px;padding:0 20px;border-radius:999px;font-weight:700;font-size:14px;background:var(--ink);color:#fff;margin-top:20px}
+.p-navy .btn{background:#fff;color:var(--deep)}
+.seal{width:140px;position:absolute;top:40px;right:40px}
+.big{font-weight:800;font-size:130px;line-height:.9;letter-spacing:-.05em}.big small{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.6;margin-top:10px}
+.list{margin-top:22px}.list .row{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);font-size:15px}.p-navy .list .row{border-color:rgba(255,255,255,.15)}
+.list b{font-weight:700}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.stats b{display:block;font-weight:800;font-size:48px;letter-spacing:-.04em;line-height:1}.stats span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.6}
+.checks li{padding:10px 0;border-top:1px solid var(--line);font-size:15px}.p-navy .checks li{border-color:rgba(255,255,255,.15)}
+.price{font-weight:800;font-size:52px;letter-spacing:-.04em;margin-top:12px}.per{font-size:13px;color:var(--mute)}.p-navy .per{color:rgba(255,255,255,.6)}
+.docs .doc{display:flex;justify-content:space-between;padding:14px 16px;border-radius:12px;font-size:15px;cursor:none}.docs .doc span{color:var(--mute);font-size:13px}
+.p-navy .docs .doc span{color:rgba(255,255,255,.55)}
+.docview{margin-top:14px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:18px 20px}
+.docview h4{font-size:17px}.docview .pv{height:120px;display:grid;place-items:center;color:rgba(255,255,255,.4);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.faq .q{border-top:1px solid var(--line)}.faq .q:first-child{border-top:0}
+.faq .qh{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 4px;font-size:17px;font-weight:600}
+.faq .qh .chev{position:relative;width:15px;height:15px;flex:none}.faq .qh .chev:before,.faq .qh .chev:after{content:"";position:absolute;top:6px;width:9px;height:2px;background:var(--mute);border-radius:2px}
+.faq .qh .chev:before{left:0;transform:rotate(45deg)}.faq .qh .chev:after{left:6px;transform:rotate(-45deg)}
+.faq .qb{overflow:hidden;max-height:0;opacity:0}.faq .qb p{padding:0 4px 18px;color:var(--mute);font-size:14px;line-height:1.6}
+.prog{position:fixed;bottom:0;left:0;right:0;height:64px;display:flex;align-items:center;gap:18px;padding:0 32px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);background:linear-gradient(rgba(244,241,234,0),var(--cream))}
+.prog .line{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}.prog .line i{position:absolute;left:0;top:0;height:2px;background:var(--ink)}
+.wk-hov{transform:translateY(-4px)}
+.docs .doc.wk-sel{background:rgba(255,255,255,.14)!important;box-shadow:none!important}
+</style></head><body>
+<div class="top"><a class="lock"><img src="assets/seal.png">SSCRS</a><nav><a>About</a><a>Board</a><a>Membership</a><a>Committees</a><a>Education</a></nav><div style="display:flex;gap:16px;align-items:center"><a class="ar">العربية</a><a class="cta">Join the society</a></div></div>
+<div id="track">
+ <div class="panel p-id" id="p-id"><img class="seal rv" data-rv="0.8" src="assets/seal.png"><div><div class="k rv" data-rv="1.0">Est. 2009 · 1430H</div><h1 class="rv" data-rv="1.3" style="margin-top:16px">Saudi Society of Colon &amp; Rectal Surgery</h1><div class="sub ar rv" data-rv="1.7" style="text-align:left">الجمعية السعودية لجراحة القولون والمستقيم</div></div><div class="rv" data-rv="2.0"><p class="lead">The national home for colorectal surgical excellence.</p><a class="btn" id="cta">Become a member →</a></div></div>
+ <div class="panel w p-navy" id="p-forum"><div class="k rv">Annual Forum · 15–17 April 2026</div><div><h2 class="rv">Registration is open.</h2><p class="lead rv">Three days of lectures, live surgery and workshops in Riyadh.</p><a class="btn rv">Register</a></div></div>
+ <div class="panel s p-green" id="p-num"><div class="k rv">In numbers</div><div class="big rv">500+<small>Active members</small></div></div>
+ <div class="panel w p-id" id="p-mem"><div class="k rv">Membership</div><div><h2 class="rv">Three categories.</h2><div class="list rv"><div class="row"><b>Affiliate</b><span>SAR 300</span></div><div class="row"><b>Regular</b><span>SAR 600</span></div><div class="row"><b>Honorary</b><span>By invitation</span></div></div></div></div>
+ <div class="panel w p-photo" id="p-chair"><img src="assets/bm-01.jpg"><div class="cap"><div class="k" style="color:rgba(255,255,255,.7)">Chairperson of the Board</div><h2 style="font-size:34px;margin-top:6px">Prof. Samar Alhomoud</h2><div style="font-size:14px;opacity:.85;margin-top:4px">Consultant Colorectal Surgeon · Professor of Surgery</div></div></div>
+ <div class="panel n p-photo" id="p-m1"><img src="assets/bm-02.jpg"><div class="cap"><h2 style="font-size:26px">Dr. Anmar Faisal Semilan</h2><div style="font-size:13px;opacity:.85;margin-top:4px">Colorectal &amp; General Surgery · King Fahad Armed Forces Hospital</div></div></div>
+ <div class="panel n p-photo" id="p-m2"><img src="assets/bm-03.jpg"><div class="cap"><h2 style="font-size:26px">Dr. Rami Alsairafi</h2><div style="font-size:13px;opacity:.85;margin-top:4px">Colorectal &amp; General Surgery · Security Forces Hospital</div></div></div>
+ <div class="panel n p-navy" id="p-tier"><div class="k rv">02 · Regular membership</div><div><div class="price rv">SAR 600</div><div class="per rv">consultants and specialists</div><ul class="checks rv"><li>Everything in Affiliate</li><li>Voting rights at the General Assembly</li><li>Eligibility for Board nomination</li><li>Listing in the members directory</li></ul><a class="btn rv">Apply</a></div></div>
+ <div class="panel w p-navy" id="p-docs"><div class="k rv">Documents</div><div><h2 class="rv">Regulations library</h2><div class="docs rv" id="docs"><div class="doc" id="doc-0"><b>SSCRS Basic Bylaw</b><span>2025 ↓</span></div><div class="doc" id="doc-1"><b>Membership Regulations</b><span>2025 ↓</span></div><div class="doc" id="doc-2"><b>Financial Regulations</b><span>2024 ↓</span></div><div class="doc" id="doc-3"><b>Board Election Rules</b><span>2024 ↓</span></div></div><div class="docview rv"><h4 id="docview-title">SSCRS Basic Bylaw</h4><div class="pv">PDF preview</div></div></div></div>
+ <div class="panel w p-id" id="p-faq"><div class="k rv">Help</div><div><h2 class="rv" style="margin-bottom:8px">Frequently asked</h2><div class="faq rv" id="faq">
+  <div class="q" id="faq-q0"><div class="qh">How do I become a member?<span class="chev"></span></div><div class="qb"><p>Choose a category — affiliate, regular or honorary — and apply online or by form. The Board reviews applications monthly.</p></div></div>
+  <div class="q" id="faq-q1"><div class="qh">What does membership include?<span class="chev"></span></div><div class="qb"><p>Educational activities, member rates at the Annual Forum, voting rights and a directory listing.</p></div></div>
+  <div class="q" id="faq-q2"><div class="qh">When is the Annual Forum?<span class="chev"></span></div><div class="qb"><p>15–17 April 2026 in Riyadh — lectures, live surgery and workshops.</p></div></div>
+ </div></div></div>
+ <div class="panel s p-green" id="p-cta"><div class="k rv">Join</div><div><h2 class="rv">Become a member of the Kingdom's colorectal society.</h2><a class="btn rv">Become a member →</a></div></div>
+</div>
+<div class="prog"><span id="pl">SSCRS</span><div class="line"><i id="pline"></i></div><span>Scroll →</span></div>
+<script>
+window.__bg=function(T,y){var tot=document.getElementById('track').scrollWidth-innerWidth+64;var p=Math.max(0,Math.min(1,y/Math.max(1,tot)));document.getElementById('pline').style.width=(8+p*92)+'%';};
+window.CFG={ track:'#track', hpad:32, hoverSel:'.panel,.doc', hoverFrom:4,
+ scroll:[[0,0],[5.5,0],[7.5,'#p-forum'],[11.0,'#p-num'],[14.0,'#p-mem'],[17.5,'#p-chair'],[21.0,'#p-m1'],[24.0,'#p-tier'],[27.5,'#p-docs'],[32.0,'#p-docs'],[34.5,'#p-faq'],[43.0,'#p-faq'],[45.0,'#p-cta'],[47.5,'#p-cta']],
+ path:[[0,1500,540],[3.6,1500,540],[4.8,'#cta'],[5.8,'#cta'],[7.5,760,440],
+  [9.0,'#p-forum'],[12.5,'#p-num'],[15.5,'#p-mem'],[19.0,'#p-chair'],[22.5,'#p-m1'],
+  [25.5,'#p-tier'],[28.5,'#doc-0'],[30.2,'#doc-1'],[33.0,'#doc-2'],
+  [35.5,760,440],[36.6,'#faq-q0'],[37.2,'#faq-q0'],[39.6,'#faq-q1'],[40.2,'#faq-q1'],[42.4,'#faq-q0'],[44.6,1500,540]],
+ clicks:[5.3,30.2,33.0,37.2,40.2],
+ docs:[{list:'#docs',title:'#docview-title',titles:['SSCRS Basic Bylaw','Membership Regulations','Financial Regulations','Board Election Rules'],start:0,sched:[[30.2,1],[33.0,2]]}],
+ faq:[{id:'#faq-q0',at:37.2},{id:'#faq-q1',at:40.2}],
+ end:{at:45.2,seal:'assets/seal.png',title:'Saudi Society of Colon & Rectal Surgery',sub:'الجمعية السعودية لجراحة القولون والمستقيم',label:'Direction 08'}
+};
+</script>
+<script src="engine.js"></script>
+</body></html>

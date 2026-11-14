@@ -1,0 +1,120 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tour10</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--sand:#EFE8D8;--sand2:#E6DCC6;--ink:#0B2444;--navy:#1B4C93;--green:#3C7A2A;--mute:#6E6A60;--line:rgba(11,36,68,.16);--accent:#1B4C93;--cur:#0B2444;--curr:#EFE8D8;--fade:#0B2444;--endfg:#EFE8D8}
+body{background:var(--sand);color:var(--ink);font-family:"IBM Plex Sans Arabic",sans-serif;position:relative}
+.geo{position:fixed;inset:0;z-index:0;opacity:.16;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='%230B2444' stroke-width='.8'><path d='M60 0L120 60L60 120L0 60Z'/><path d='M60 18L102 60L60 102L18 60Z'/><circle cx='60' cy='60' r='14'/><path d='M0 0L120 120M120 0L0 120'/></svg>");background-size:120px 120px;mask-image:radial-gradient(ellipse at 85% 15%,#000,transparent 60%);-webkit-mask-image:radial-gradient(ellipse at 85% 15%,#000,transparent 60%)}
+.en{font-family:"IBM Plex Sans";direction:ltr;unicode-bidi:isolate}
+.kufi{font-family:"Reem Kufi"}.rv{opacity:0}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 44px}
+header{position:fixed;top:0;left:0;right:0;z-index:30;height:78px;display:flex;align-items:center;background:rgba(239,232,216,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+header .lock{display:flex;align-items:center;gap:13px;font-family:"Reem Kufi";font-size:18px;font-weight:600}header .lock img{width:44px;height:44px}
+nav{display:flex;gap:28px;font-size:15px;font-weight:500}
+.cta{background:var(--ink);color:var(--sand);padding:10px 18px;border-radius:4px;font-weight:600;font-size:14px}
+main{padding-top:78px}
+.hero{padding:64px 0 56px;min-height:86vh;display:flex;flex-direction:column;justify-content:center}
+.hero .k{font-size:13px;color:var(--green);font-weight:600;margin-bottom:24px}
+.hero h1{font-family:"Reem Kufi";font-weight:600;font-size:116px;line-height:1.16;color:var(--ink)}
+.hero h1 span{color:var(--navy)}
+.hero .row{display:grid;grid-template-columns:1.2fr 1fr auto;gap:40px;align-items:end;margin-top:30px}
+.hero .en.name{font-size:15px;color:var(--mute);line-height:1.5}
+.hero p{font-size:19px;line-height:1.9;max-width:38ch;font-weight:300}
+.btns{display:flex;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:4px;font-weight:600;font-size:15px}
+.btn-p{background:var(--ink);color:var(--sand)}.btn-o{border:1px solid var(--ink);color:var(--ink)}
+.hero .seal{width:150px}
+section{padding:46px 0;position:relative;z-index:1}
+.sechead{margin-bottom:30px}.sechead .k{font-size:12.5px;color:var(--green);font-weight:600;margin-bottom:10px}
+.sechead h2{font-family:"Reem Kufi";font-weight:600;font-size:60px;line-height:1.2}
+.sechead p{font-size:17px;font-weight:300;line-height:1.9;max-width:58ch;margin-top:6px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:rgba(255,255,255,.55);border:1px solid var(--line);padding:26px;border-radius:4px}
+.card .m{font-size:12.5px;color:var(--green);font-weight:600;margin-bottom:10px}
+.card h4{font-family:"Reem Kufi";font-size:23px;font-weight:600;margin-bottom:8px}.card p{font-size:14.5px;line-height:1.8;font-weight:300}
+.chair{display:grid;grid-template-columns:1fr 340px;gap:44px;align-items:center}
+.chair img{aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:4px}
+.chair h3{font-family:"Reem Kufi";font-size:52px;font-weight:600;line-height:1.3;margin:8px 0}
+.chair .r{color:var(--green);font-weight:600;font-size:16px;margin-bottom:14px}.chair p{font-size:17px;line-height:1.9;font-weight:300;max-width:52ch}
+.members{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.member{padding:0;overflow:hidden}.member img{aspect-ratio:4/3.4;object-fit:cover;object-position:top}.member .b{padding:18px 20px}
+.member .r{color:var(--green);font-size:13.5px;font-weight:600;margin:2px 0 4px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 18px;border-left:1px solid var(--line)}.stat:last-child{border-left:0}
+.stat b{display:block;font-family:"Reem Kufi";font-size:58px;font-weight:600;line-height:1.1;color:var(--navy)}.stat span{font-size:14px;font-weight:500}
+.tier .price{font-family:"Reem Kufi";font-size:44px;font-weight:600;margin:6px 0 0;color:var(--navy)}.tier .per{font-size:13px;color:var(--mute);margin-bottom:14px}
+.checks li{font-size:15px;padding:9px 0;border-top:1px solid var(--line);font-weight:300}
+.tier.hl{background:var(--ink);color:var(--sand);border-color:var(--ink)}.tier.hl .price{color:#fff}.tier.hl .per{color:rgba(255,255,255,.6)}.tier.hl .checks li{border-color:rgba(255,255,255,.2)}.tier.hl .m{color:#9FD88B}
+.docwrap{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start;margin-top:12px}
+.doclist{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.doc{display:flex;justify-content:space-between;align-items:center;padding:17px 22px;border-bottom:1px solid var(--line);font-size:17px;cursor:none}.doc:last-child{border-bottom:0}.doc b{font-family:"Reem Kufi";font-weight:500}.doc span{font-size:13px;color:var(--mute)}
+.docview{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:4px}
+.docview .dvh{padding:16px 22px;border-bottom:1px solid var(--line);font-family:"Reem Kufi";font-size:20px}
+.docview .pv{height:240px;display:grid;place-items:center;color:var(--mute);font-size:13px}
+.faq{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.faq .q{border-top:1px solid var(--line)}.faq .q:first-child{border-top:0}
+.faq .qh{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 26px;font-family:"Reem Kufi";font-weight:500;font-size:23px}
+.faq .qh .chev{position:relative;width:16px;height:16px;flex:none}.faq .qh .chev:before,.faq .qh .chev:after{content:"";position:absolute;top:7px;width:10px;height:2px;background:var(--mute);border-radius:2px}
+.faq .qh .chev:before{right:0;transform:rotate(-45deg)}.faq .qh .chev:after{right:6px;transform:rotate(45deg)}
+.faq .qb{overflow:hidden;max-height:0;opacity:0}.faq .qb p{padding:0 26px 24px;color:var(--mute);font-size:16px;line-height:1.9;font-weight:300}
+footer{background:var(--ink);color:rgba(239,232,216,.8);padding:46px 0 32px;position:relative;z-index:1;margin-top:20px}
+footer .lk{display:flex;align-items:center;gap:12px;font-family:"Reem Kufi";font-size:19px;color:#fff;margin-bottom:12px}footer .lk img{width:42px}
+.wk-sel{background:rgba(27,76,147,.1)!important;box-shadow:inset -3px 0 0 var(--accent)!important}
+.wk-hov{background:rgba(255,255,255,.8)}
+</style></head><body>
+<div class="geo"></div>
+<header><div class="wrap"><a class="lock"><img src="assets/seal.png">الجمعية السعودية لجراحة القولون والمستقيم</a>
+<nav><a>عن الجمعية</a><a>مجلس الإدارة</a><a>العضوية</a><a>اللجان</a><a>التعليم</a><a class="en">English</a></nav>
+<a class="cta" id="cta">انضم للجمعية</a></div></header>
+<main>
+<section class="hero" id="hero"><div class="wrap">
+ <div class="k rv" data-rv="1.0">تأسست عام ١٤٣٠هـ — ٢٠٠٩م · الرياض</div>
+ <h1 class="rv" data-rv="1.4">الجمعية السعودية<br>لجراحة <span>القولون والمستقيم</span></h1>
+ <div class="row"><div class="rv" data-rv="2.0"><p>البيت الوطني للتميّز في جراحة القولون والمستقيم — تعليمًا وبحثًا وتوعيةً، بأيدي جرّاحي المملكة.</p><div class="btns"><a class="btn btn-p" id="cta2">انضم للجمعية</a><a class="btn btn-o">الملتقى السنوي ٢٠٢٦</a></div></div><div class="en name rv" data-rv="2.3">Saudi Society of<br>Colon &amp; Rectal Surgery<br><span style="color:var(--green);font-weight:500">Est. 2009 · 1430H</span></div><img class="seal rv" data-rv="1.7" src="assets/seal.png"></div>
+</div></section>
+<section id="about"><div class="wrap"><div class="sechead rv"><div class="k">عن الجمعية</div><h2>تأسست بقرار، بناها الجرّاحون</h2><p>تأسست الجمعية بقرار من الهيئة السعودية للتخصصات الصحية لتنظيم العمل العلمي، وتعزيز الزمالة المهنية، ورفع الوعي المجتمعي بصحة القولون والمستقيم.</p></div>
+ <div class="g3 rv"><div class="card"><div class="m">٠١</div><h4>التميز السريري</h4><p>أعلى معايير الرعاية والممارسة الجراحية.</p></div><div class="card"><div class="m">٠٢</div><h4>التعليم والتدريب</h4><p>تعليم طبي مستمر وورش عمل وبرنامج الزمالة.</p></div><div class="card"><div class="m">٠٣</div><h4>البحث والابتكار</h4><p>دعم البحث العلمي ونقل الخبرات.</p></div></div>
+ <div class="stats rv" style="margin-top:22px"><div class="stat"><b>٢٠٠٩</b><span>سنة التأسيس</span></div><div class="stat"><b>+٥٠٠</b><span>عضو</span></div><div class="stat"><b>٦</b><span>لجان</span></div><div class="stat"><b>٨</b><span>أعضاء المجلس</span></div><div class="stat"><b>+١٥</b><span>عامًا</span></div></div>
+</div></section>
+<section id="board"><div class="wrap"><div class="sechead rv"><div class="k">القيادة</div><h2>مجلس الإدارة</h2></div>
+ <div class="chair rv" id="chair"><div><div class="r">رئيسة مجلس الإدارة</div><h3>أ.د. سمر الحمود</h3><div class="r" style="color:var(--mute);font-weight:400;margin-bottom:10px">استشارية جراحة القولون والمستقيم · أستاذة الجراحة</div><p>خبيرة دولية في الفحص المبكر والوقاية من سرطان القولون والمستقيم، شاركت في صياغة سياسات وطنية وإقليمية وأخرى لمنظمة الصحة العالمية.</p></div><img src="assets/bm-01.jpg"></div>
+ <div class="members"><div class="card member rv" id="m1"><img src="assets/bm-02.jpg"><div class="b"><h4>د. أنمار فيصل سميلان</h4><div class="r">جراحة القولون والمستقيم والجراحة العامة</div><p>مستشفى الملك فهد للقوات المسلحة</p></div></div>
+  <div class="card member rv" id="m2"><img src="assets/bm-03.jpg"><div class="b"><h4>د. رامي الصيرفي</h4><div class="r">جراحة القولون والمستقيم والجراحة العامة</div><p>مستشفى قوى الأمن · الرياض</p></div></div>
+  <div class="card member rv" id="m3"><img src="assets/bm-04.jpg"><div class="b"><h4>أ.د. أحمد الزبيدي</h4><div class="r">أستاذ جراحة القولون والمستقيم</div><p>مستشفى الملك خالد الجامعي · الرياض</p></div></div></div>
+</div></section>
+<section id="membership"><div class="wrap"><div class="sechead rv"><div class="k">العضوية</div><h2>انضم للجمعية</h2><p>ثلاث فئات وفق اللائحة الأساسية. اختر الفئة المناسبة لمرحلتك المهنية.</p></div>
+ <div class="g3 rv"><div class="card tier" id="t0"><div class="m">٠١</div><h4>عضوية انتساب</h4><div class="price">٣٠٠ ريال</div><div class="per">سنويًا · للمقيمين والمتدربين</div><ul class="checks"><li>حضور الأنشطة التعليمية</li><li>سعر الأعضاء في الملتقى</li><li>النشرة الدورية</li></ul></div>
+  <div class="card tier hl" id="t1"><div class="m">٠٢</div><h4>عضوية عاملة</h4><div class="price">٦٠٠ ريال</div><div class="per">سنويًا · للاستشاريين والأخصائيين</div><ul class="checks"><li>كل مزايا الانتساب</li><li>حق التصويت في الجمعية العمومية</li><li>أهلية الترشح للمجلس</li><li>الإدراج في دليل الأعضاء</li></ul></div>
+  <div class="card tier" id="t2"><div class="m">٠٣</div><h4>عضوية فخرية</h4><div class="price">بدعوة</div><div class="per">تُمنح بقرار من المجلس</div><ul class="checks"><li>تقديرًا للعطاء المتميز</li><li>عضوية مدى الحياة</li><li>إدراج فخري</li></ul></div></div>
+</div></section>
+<section id="committees"><div class="wrap"><div class="sechead rv"><div class="k">الحوكمة</div><h2>اللجان والأنظمة</h2><p>اللجان التي تحمل عمل الجمعية، واللوائح التي تحكمه — وفق الفصل الخامس من اللائحة الأساسية.</p></div>
+ <div class="docwrap"><div class="doclist rv" id="docs">
+  <div class="doc" id="doc-0"><b>اللائحة الأساسية</b><span>٢٠٢٥ · PDF ↓</span></div>
+  <div class="doc" id="doc-1"><b>لائحة العضوية</b><span>٢٠٢٥ · PDF ↓</span></div>
+  <div class="doc" id="doc-2"><b>اللائحة المالية</b><span>٢٠٢٤ · PDF ↓</span></div>
+  <div class="doc" id="doc-3"><b>قواعد انتخاب المجلس</b><span>٢٠٢٤ · PDF ↓</span></div>
+ </div><div class="docview rv"><div class="dvh" id="docview-title">اللائحة الأساسية</div><div class="pv">معاينة الملف</div></div></div>
+</div></section>
+<section id="faq"><div class="wrap"><div class="sechead rv"><div class="k">مساعدة</div><h2>الأسئلة الشائعة</h2></div>
+ <div class="faq rv" id="faq"><div class="q" id="faq-q0"><div class="qh">كيف أنضم للجمعية؟<span class="chev"></span></div><div class="qb"><p>اختر الفئة المناسبة — انتساب أو عاملة أو فخرية — وقدّم طلبك إلكترونيًا أو بالنموذج. يراجع المجلس الطلبات شهريًا.</p></div></div>
+  <div class="q" id="faq-q1"><div class="qh">ماذا تشمل العضوية؟<span class="chev"></span></div><div class="qb"><p>حضور الأنشطة التعليمية، وسعر الأعضاء في الملتقى السنوي، وحق التصويت للأعضاء العاملين، والإدراج في دليل الأعضاء.</p></div></div>
+  <div class="q" id="faq-q2"><div class="qh">متى الملتقى السنوي؟<span class="chev"></span></div><div class="qb"><p>١٥–١٧ أبريل ٢٠٢٦ في الرياض — ثلاثة أيام من المحاضرات والعمليات المباشرة وورش العمل.</p></div></div></div>
+</div></section>
+<footer><div class="wrap"><div class="lk"><img src="assets/seal.png">الجمعية السعودية لجراحة القولون والمستقيم</div><div style="font-size:14px;opacity:.8">البيت الوطني للتميّز في جراحة القولون والمستقيم · الرياض ٢٠٠٩</div></div></footer>
+</main>
+<script>
+window.CFG={ vpad:94, hoverSel:'.card,.doc,.chair', hoverFrom:4,
+ scroll:[[0,0],[6.0,0],[8.0,'#about'],[12.5,'#board'],[16.5,'#board'],[19.5,'#membership'],[23.5,'#committees'],[27.0,'#committees'],[29.5,'#faq'],[38.0,'#faq'],[40.0,'#faq']],
+ path:[[0,300,520],[3.4,300,520],[4.6,'#cta2'],[5.6,'#cta2'],[7.2,760,520],
+  [9.5,'#about .card',],[11.5,760,560],[14.0,'#chair'],[15.6,'#m1'],
+  [18.5,'#t2'],[20.0,'#t1'],[21.0,'#t1'],[23.0,760,520],[25.0,'#doc-0'],[26.4,'#doc-1'],
+  [29.0,760,520],[30.6,'#faq-q0'],[31.2,'#faq-q0'],[33.6,'#faq-q1'],[34.2,'#faq-q1'],[36.4,'#faq-q0'],[38.4,300,520]],
+ clicks:[5.1,20.5,26.4,31.2,34.2],
+ docs:[{list:'#docs',title:'#docview-title',titles:['اللائحة الأساسية','لائحة العضوية','اللائحة المالية','قواعد انتخاب المجلس'],start:0,sched:[[26.4,1]]}],
+ faq:[{id:'#faq-q0',at:31.2},{id:'#faq-q1',at:34.2}],
+ end:{at:39.0,seal:'assets/seal.png',title:'الجمعية السعودية لجراحة القولون والمستقيم',sub:'Saudi Society of Colon & Rectal Surgery',label:'Direction 10'}
+};
+</script>
+<script src="engine.js"></script>
+</body></html>
