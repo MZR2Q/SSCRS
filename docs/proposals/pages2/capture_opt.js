@@ -1,5 +1,5 @@
 const { chromium } = require('playwright'); const path=require('path'); const fs=require('fs');
-const out=path.join(__dirname,'..','options','render','opt');
+const out='/tmp/claude-0/-home-user-SSCRS/df70ff8e-71b4-561d-adcf-7222927e233a/scratchpad/proposals/render/opt';
 fs.mkdirSync(out,{recursive:true});
 // [file, label, [home,board,membership,committees,faq] times]
 const JOBS=[
@@ -8,7 +8,7 @@ const JOBS=[
  ['tour15.html?t=C','03',[4.0,18.5,27.0,35.5,51.0]],
  ['tour15.html?t=D','04',[4.0,18.5,27.0,35.5,51.0]],
  ['tour15.html?t=E','05',[4.0,18.5,27.0,35.5,51.0]],
- ['demo6.html','06',[5.0,29.0,34.5,42.5,55.5]],
+ ['demo6.html?mode=light','06',[5.0,29.0,34.5,42.5,55.5]],
  ['tour7.html','07',[3.0,14.0,20.0,31.0,37.5]],
  ['tour8.html','08',[3.0,19.5,26.0,33.2,38.5]],
  ['tour9.html','09',[3.0,14.5,20.0,26.5,34.5]],
