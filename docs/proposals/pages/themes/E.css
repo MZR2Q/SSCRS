@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+:root{--ui:Inter,system-ui,sans-serif;--display:"Times New Roman",Times,"Liberation Serif",serif;--arabic:"Noto Naskh Arabic",serif;
+--bg:#fff;--card:#fff;--ink:#0B2444;--body:#5B6B86;--muted:#8A94A6;--line:#E6EAF0;--accent:#0B2444;--accent2:#1E7F8A;--tint:#F7F8FA;--tint-soft:#F7F8FA;
+--plate:#0B2444;--on-plate-accent:#7FD1DB;--wrap:1100px;--r:14px;--r-btn:999px;--r-ic:50%;--r-tag:999px;--r-plate:20px;
+--card-line:1px solid #E6EAF0;--shadow:none;--shadow-hl:0 0 0 1px #0B2444;--gap:28px;--h1:60px;--h2:40px;--align:center;--lead-ms:auto;--ph-pad:72px 0 48px;--sec-pad:44px 0;
+--hdr-bg:#fff;--hdr-line:0;--hdr-fg:#0B2444;--hdr-nav:#3F4C63;--hdr-link:#1B4C93;--hdr-h:84px;
+--feature-bg:#fff;--feature-fg:#0B2444;--feature-role:#1E7F8A;--feature-tag-bg:#F7F8FA;--feature-tag-fg:#0B2444;
+--ft-bg:#fff;--ft-fg:#5B6B86;--ft-h:#0B2444;--ft-rule:#E6EAF0;--ft-line:1px solid #E6EAF0}
+body{font-size:17px}
+.mono,.lock img,.sealplate img,.hl-ev img{filter:grayscale(1) sepia(1) hue-rotate(188deg) saturate(2.2) brightness(.78) contrast(1.05)}
+.lock .long{display:none}.lock .short{display:block;font-size:16px}
+.lock img{width:34px;height:34px}
+.feature p{color:#5B6B86}
+.card h4{font-family:var(--display);font-size:24px}
+.grid-3 .card,.grid-4 .card{border:0;border-top:1px solid var(--line);border-radius:0;padding:26px 0 0}
+.ic{display:none}
+.plate{background:#fff;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;padding:40px 0;text-align:center}
+.plate h2{color:var(--ink)}
+.stat{border:0;background:none;padding:10px}.stat b{color:var(--ink);font-size:40px}.stat span{color:var(--muted);opacity:1}
+.feature{border:0;box-shadow:none;border-radius:0;grid-template-columns:300px 1fr;gap:48px;align-items:center}
+.feature img{border-radius:50%;aspect-ratio:1;width:300px}
+.feature .body{padding:0}
+.hl-ev{background:#fff;color:var(--ink);border:1px solid var(--line)}.hl-ev h2{color:var(--ink)}.hl-ev p{color:var(--body)}
+.hl-ev img{background:none;padding:0}
+.sealplate{background:none;border:0}
+table{border-radius:0;border:0;border-top:1px solid var(--line)}th{background:none}
+.doc.on{background:none;box-shadow:inset 3px 0 0 var(--accent2)}
+
+.plate .kicker{color:var(--accent2)}
+.tier.hl{box-shadow:none;border-top:2px solid var(--ink)}
+
+.plate .kicker{color:var(--accent2)!important}

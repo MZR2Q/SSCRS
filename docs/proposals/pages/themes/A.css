@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+:root{--ui:Inter,system-ui,sans-serif;--display:"Times New Roman",Times,"Liberation Serif",serif;--arabic:"Noto Naskh Arabic",serif;
+--bg:#fff;--card:#fff;--ink:#0B2444;--body:#4B5565;--muted:#7A869A;--line:#E3E8EF;--accent:#1B4C93;--accent2:#3C7A2A;--tint:#EEF3FA;--tint-soft:#F7F9FC;
+--plate:#0B2444;--on-plate-accent:#8FD37A;--wrap:1160px;--r:12px;--r-btn:10px;--r-ic:9px;--r-tag:6px;--r-plate:14px;
+--card-line:1px solid #E3E8EF;--shadow:none;--shadow-hl:0 0 0 1px #1B4C93;--gap:20px;
+--hdr-bg:#fff;--hdr-line:1px solid #E3E8EF;--hdr-fg:#0B2444;--hdr-nav:#3F4C63;--hdr-link:#1B4C93;
+--feature-bg:#fff;--feature-fg:#0B2444;--feature-role:#1B4C93;--feature-tag-bg:#EEF3FA;--feature-tag-fg:#1B4C93;
+--ft-bg:#fff;--ft-fg:#4B5565;--ft-h:#0B2444;--ft-rule:#E3E8EF;--ft-line:1px solid #E3E8EF}
+.feature p{color:#4B5565}
