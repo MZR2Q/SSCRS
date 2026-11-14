@@ -70,6 +70,28 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
 #fade{position:fixed;inset:0;z-index:40;background:var(--bg);opacity:0;pointer-events:none}
 #end{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:140px;text-align:center;opacity:0;pointer-events:none}
 #end h2{font-weight:300;font-size:40px;letter-spacing:-.02em}#end .ar{font-size:22px;color:var(--dim);margin-top:12px}#end .k{font-size:12px;letter-spacing:.24em;color:var(--mute);margin-top:22px;text-transform:uppercase}
+
+/* ---------- light mode ---------- */
+html.light{--bg:#F6F8FC;--ink:#0B2444;--dim:rgba(11,36,68,.70);--mute:rgba(11,36,68,.46);--glass:rgba(255,255,255,.72);--line:rgba(11,36,68,.10);--glow:#1B4C93;--green:#3C7A2A}
+html.light body{font-weight:400}
+html.light .vignette{background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 40%,#F6F8FC 100%)}
+html.light .pillnav{background:rgba(255,255,255,.72);box-shadow:0 10px 40px rgba(11,36,68,.10);color:var(--dim)}
+html.light .pillnav a.on{color:var(--ink);font-weight:500}
+html.light .pillnav .cta{background:#0B2444;color:#fff}
+html.light .btn-w{background:#0B2444;color:#fff}
+html.light .btn-g{background:rgba(255,255,255,.7);border:1px solid var(--line);color:var(--ink)}
+html.light .glass{box-shadow:0 1px 2px rgba(11,36,68,.04),0 10px 30px rgba(11,36,68,.06)}
+html.light .glass:before{background:linear-gradient(135deg,rgba(255,255,255,.9),transparent 45%)}
+html.light .glass.hov{border-color:rgba(27,76,147,.35);box-shadow:0 20px 60px rgba(27,76,147,.16),0 0 0 1px rgba(27,76,147,.25)}
+html.light .glass .ic{background:rgba(27,76,147,.06);border-color:rgba(27,76,147,.12)}
+html.light .tag{background:rgba(27,76,147,.06);border-color:rgba(27,76,147,.12);color:var(--ink)}
+html.light .hl{box-shadow:0 0 0 1px rgba(27,76,147,.55),0 20px 60px rgba(27,76,147,.14)}
+html.light .member img{filter:none}
+html.light .hero h1 b{font-weight:600}
+html.light .stat b{font-weight:300}
+html.light #cursor{background:#0B2444;box-shadow:0 0 0 2px rgba(255,255,255,.95),0 4px 14px rgba(11,36,68,.35)}
+html.light #ripple{border-color:rgba(11,36,68,.8)}
+html.light footer{border-top-color:var(--line)}
 </style></head><body>
 <canvas id="fx"></canvas><div class="vignette"></div>
 <div class="top rv" id="nav" data-rv="1.9" data-dy="-16"><nav class="pillnav"><a class="lock"><img src="assets/seal.png">SSCRS</a><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a id="n-education">Education</a><a class="ar">العربية</a><a class="cta">Join</a></nav></div>
@@ -155,6 +177,7 @@ $('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" 
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 const seg=(T,t0,d)=>clamp((T-t0)/d);
+const LIGHT=/mode=light/.test(location.search);if(LIGHT)document.documentElement.classList.add('light');
 const W=innerWidth,H=innerHeight;const SEALMODE=/seal=1/.test(location.search);if(SEALMODE){document.querySelectorAll('.view,#nav,#end,.vignette').forEach(e=>e.style.display='none');}
 
 // views & scroll
@@ -189,14 +212,15 @@ const img=new Image();img.src='assets/seal.png';img.onload=()=>{
  const s=300,o=document.createElement('canvas');o.width=o.height=s;const ox=o.getContext('2d');ox.imageSmoothingQuality='high';ox.drawImage(img,0,0,s,s);const d=ox.getImageData(0,0,s,s).data;
  for(let j=0;j<s;j++)for(let i=0;i<s;i++){const k=(j*s+i)*4;const A=d[k+3];if(A<60)continue;let r=d[k],g=d[k+1],b=d[k+2];const lum=(r*.299+g*.587+b*.114);
   let col,al,sz;
-  if(lum>228){col='222,232,255';al=.52*(A/255);sz=1.3;}                     // white ring + highlights -> soft luminous dots
+  if(lum>228){col=LIGHT?'168,186,214':'222,232,255';al=(LIGHT?.62:.52)*(A/255);sz=1.3;}   // white ring + highlights
+  else if(LIGHT){const f=.92;r*=f;g*=f;b*=f;col=`${r|0},${g|0},${b|0}`;al=.92*(A/255);sz=1.55;}
   else{const f=1.10+(1-lum/255)*.75;r=Math.min(255,r*f);g=Math.min(255,g*f);b=Math.min(255,b*f);col=`${r|0},${g|0},${b|0}`;al=(.82+.18*(1-lum/255))*(A/255);sz=1.55;}
   pts.push({u:(i/s-.5)*2,v:(j/s-.5)*2,sx:rnd()*W*1.4-W*.2,sy:rnd()*H*1.4-H*.2,ph:rnd()*6.283,sz,col,al});}
  for(let i=0;i<1600;i++)stray.push({x:rnd()*W,y:rnd()*H,a:rnd()*.22+.04,r:rnd()*1.1+.2,ph:rnd()*6.283,sp:rnd()*6+2});
  ready=true;};
 function drawParticles(T,scrollY,view,cur){
- x.setTransform(DPR,0,0,DPR,0,0);x.fillStyle='#050B18';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';
- for(const s of stray){const yy=((s.y-T*s.sp)%H+H)%H,xx=s.x+Math.sin(T*.25+s.ph)*10;x.fillStyle=`rgba(120,160,255,${s.a})`;x.beginPath();x.arc(xx,yy,s.r,0,7);x.fill();}
+ x.setTransform(DPR,0,0,DPR,0,0);x.fillStyle=LIGHT?'#F6F8FC':'#050B18';x.fillRect(0,0,W,H);x.globalCompositeOperation=LIGHT?'source-over':'lighter';
+ for(const s of stray){const yy=((s.y-T*s.sp)%H+H)%H,xx=s.x+Math.sin(T*.25+s.ph)*10;x.fillStyle=LIGHT?`rgba(27,76,147,${s.a*.55})`:`rgba(120,160,255,${s.a})`;x.beginPath();x.arc(xx,yy,s.r,0,7);x.fill();}
  const p1=eo(seg(T,0.6,2.6));                       // scatter -> seal
  const toTop=eo(seg(T,TA-0.2,1.5));                 // seal -> top half ring
  const toEnd=eo(seg(T,TE,1.6));                     // -> back to centre, smaller
@@ -206,7 +230,7 @@ function drawParticles(T,scrollY,view,cur){
  const k=(view==='home'?clamp(scrollY/1000)*0.9:0)*(1-toTop);      // spread with scroll on home
  const par=view==='home'?-scrollY*0.55:0;
  const alphaK=1-k*0.85;
- const gcy0=cy+par;const gr=x.createRadialGradient(cx,gcy0,R*.15,cx,gcy0,R*1.7);gr.addColorStop(0,`rgba(91,157,255,${.26*p1*alphaK})`);gr.addColorStop(1,'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,W,H);
+ const gcy0=cy+par;const gr=x.createRadialGradient(cx,gcy0,R*.15,cx,gcy0,R*1.7);gr.addColorStop(0,LIGHT?`rgba(27,76,147,${.09*p1*alphaK})`:`rgba(91,157,255,${.26*p1*alphaK})`);gr.addColorStop(1,LIGHT?'rgba(27,76,147,0)':'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,W,H);
  x.globalCompositeOperation='source-over';
  const br=.9+.1*Math.sin(T*.8);
  for(const p of pts){

@@ -7,4 +7,5 @@ time-driven demo page, not screen-recorded — see
 
 | File | Direction | Length |
 |---|---|---|
-| `SSCRS-Direction-06-Seal-of-Light.mp4` | 06 — Seal of light (particle seal, dark glass) | 53 s |
+| `SSCRS-Direction-06-Seal-of-Light.mp4` | 06 — Seal of light, dark mode (particle seal, dark glass) | 53 s |
+| `SSCRS-Direction-06-Seal-of-Light-White.mp4` | 06 — Seal of light, white mode (same tour, light glass) | 53 s |
