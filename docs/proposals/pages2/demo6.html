@@ -70,6 +70,22 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center}
 #fade{position:fixed;inset:0;z-index:40;background:var(--bg);opacity:0;pointer-events:none}
 #end{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:140px;text-align:center;opacity:0;pointer-events:none}
 #end h2{font-weight:300;font-size:40px;letter-spacing:-.02em}#end .ar{font-size:22px;color:var(--dim);margin-top:12px}#end .k{font-size:12px;letter-spacing:.24em;color:var(--mute);margin-top:22px;text-transform:uppercase}
+.doc.sel{background:rgba(91,157,255,.10);box-shadow:inset 3px 0 0 var(--glow)}
+.docview{padding:0;overflow:hidden}
+.docview .dvh{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line)}
+.docview .dvh h4{margin:0}
+.docview .dvbtn{font-size:12.5px;color:var(--glow)}
+.docpreview{height:300px;display:grid;place-items:center;color:var(--mute);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.faq .q{border-top:1px solid var(--line)}
+.faq .q:first-child{border-top:0}
+.faq .qh{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 24px;font-size:18px;font-weight:400}
+.faq .q.open .qh{color:var(--ink)}
+.faq .qh .chev{position:relative;width:16px;height:16px;flex:none}
+.faq .qh .chev:before,.faq .qh .chev:after{content:"";position:absolute;top:7px;width:10px;height:2px;background:var(--dim);border-radius:2px}
+.faq .qh .chev:before{left:0;transform:rotate(45deg)}
+.faq .qh .chev:after{left:6px;transform:rotate(-45deg)}
+.faq .qb{overflow:hidden;max-height:0;opacity:0}
+.faq .qb p{padding:0 24px 24px;color:var(--dim);font-size:15px;max-width:72ch;line-height:1.7}
 
 /* ---------- light mode ---------- */
 html.light{--bg:#F6F8FC;--ink:#0B2444;--dim:rgba(11,36,68,.70);--mute:rgba(11,36,68,.46);--glass:rgba(255,255,255,.72);--line:rgba(11,36,68,.10);--glow:#1B4C93;--green:#3C7A2A}
@@ -145,7 +161,10 @@ html.light footer{border-top-color:var(--line)}
  <div class="ph"><div class="k rv" data-rv="37.6">Governance</div><h1 class="rv" data-rv="37.75">Committees &amp; Regulations</h1><p class="rv" data-rv="37.9">The committees that carry the work, and the documents that govern it.</p></div>
  <div class="g g3" id="coms"></div>
  <div class="sh rv" data-rv="41.0" style="margin:70px 0 24px"><div class="k">Documents</div><h2>Regulations library</h2></div>
- <div class="glass rv" data-rv="41.3" style="padding:0" id="docs"></div>
+ <div class="g" style="grid-template-columns:1fr 1.25fr;align-items:start">
+  <div class="glass rv" data-rv="41.3" style="padding:0" id="docs"></div>
+  <div class="glass docview rv" data-rv="41.45" id="docview"><div class="dvh"><h4 id="docview-title">SSCRS Basic Bylaw</h4><span class="dvbtn">Open in new tab ↗</span></div><div class="docpreview">PDF preview</div></div>
+ </div>
  <div style="height:160px"></div>
 </div></div>
 
@@ -155,6 +174,12 @@ html.light footer{border-top-color:var(--line)}
  <div class="sh rv" data-rv="46.6" style="margin:70px 0 24px"><div class="k">Upcoming</div><h2>Activities</h2></div>
  <div class="glass rv" data-rv="46.9" style="padding:0" id="events"></div>
  <div style="height:200px"></div>
+</div></div>
+
+<div class="view" id="v-faq"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="51.0">Help</div><h1 class="rv" data-rv="51.15">Frequently asked</h1><p class="rv" data-rv="51.3">Quick answers on membership, the Forum and governance.</p></div>
+ <div class="glass rv" data-rv="51.6" id="faq" style="padding:4px 10px;max-width:880px;margin:0 auto"></div>
+ <div style="height:160px"></div>
 </div></div>
 
 <div id="fade"></div>
@@ -169,7 +194,9 @@ const memHTML=(t0,step)=>m.slice(1).map((x,i)=>`<div class="glass member rv" dat
 $('#memsb').innerHTML=memHTML(27.7,.15);
 $('#pillars').innerHTML=D.pillars.map((p,i)=>`<div class="glass rv" data-rv="${(20.9+i*.12).toFixed(2)}"><div class="ic"><i></i></div><h4>${p[0]}</h4></div>`).join('');
 $('#coms').innerHTML=D.coms.map((c,i)=>`<div class="glass rv" data-rv="${(38.3+i*.12).toFixed(2)}"><div class="m">${c[2]}</div><h4>${c[0]}</h4><p>${c[3]}</p><p style="margin-top:12px;font-size:13px">Chair · <span style="color:var(--ink)">To be announced</span></p></div>`).join('');
-$('#docs').innerHTML=D.docs.map(d=>`<div class="doc"><div>${d[0]}</div><span>${d[2]} · PDF ↓</span></div>`).join('');
+$('#docs').innerHTML=D.docs.map((d,i)=>`<div class="doc${i===0?' sel':''}" id="doc-${i}"><div>${d[0]}</div><span>${d[2]} · PDF</span></div>`).join('');
+$('#faq').innerHTML=D.faq.map((f,i)=>`<div class="q" id="faq-q${i}"><div class="qh">${f[0]}<span class="chev"></span></div><div class="qb"><p>${f[2]}</p></div></div>`).join('');
+document.querySelectorAll('#faq .qb').forEach(b=>{b.style.maxHeight='none';b.dataset.h=b.scrollHeight;b.style.maxHeight='0'});
 $('#events').innerHTML=[['22','JAN','Laparoscopic colorectal skills workshop','Hands-on · King Fahad Medical City, Riyadh · 8 CME hours'],['05','FEB','Webinar: colorectal cancer screening in practice','Online · 19:00–20:30 · 1.5 CME hours'],['01','MAR','Colorectal Cancer Awareness Month — campaign launch','Riyadh, Jeddah, Dammam · with the Ministry of Health']].map(e=>`<div class="doc ev"><div style="text-align:center"><b style="display:block;font-weight:300;font-size:30px;line-height:1">${e[0]}</b><span style="font-size:11px;letter-spacing:.14em;color:var(--green)">${e[1]}</span></div><div><div style="font-size:16px;font-weight:400">${e[2]}</div><span>${e[3]}</span></div></div>`).join('');
 $('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" data-rv="${(33.8+i*.15).toFixed(2)}"><div class="m">${t[0]}</div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn ${i==1?'btn-w':'btn-g'}" style="margin-top:18px;height:42px">Apply</a></div>`).join('');
 
@@ -181,8 +208,9 @@ const LIGHT=/mode=light/.test(location.search);if(LIGHT)document.documentElement
 const W=innerWidth,H=innerHeight;const SEALMODE=/seal=1/.test(location.search);if(SEALMODE){document.querySelectorAll('.view,#nav,#end,.vignette').forEach(e=>e.style.display='none');}
 
 // views & scroll
-const TA=19.6, TB=26.2, TM=32.6, TC=37.0, TD=43.2, TE=49.4;   // about, board, membership, committees, education, end
-const TRANS=[TA,TB,TM,TC,TD];
+const TA=19.6, TB=26.2, TM=32.6, TC=37.0, TD=43.2, TF=50.6, TE=58.0;   // about, board, membership, committees, education, faq, end
+const TRANS=[TA,TB,TM,TC,TD,TF];
+const DSEL=42.3, FAQ0=51.9, FAQ1=54.6;   // doc-select + faq-open times
 function scrollTarget(id){const el=document.getElementById(id);return el?el.offsetTop-96:0}
 const KEYS={
  home:[[0,0],[7.2,0],[11.4,'glance'],[15.0,'numbers'],[18.4,'forum'],[TA,'forum']],
@@ -190,18 +218,20 @@ const KEYS={
  board:[[TB,0],[29.6,0],[31.7,440],[TM,440]],
  membership:[[TM,0],[TC,0]],
  committees:[[TC,0],[40.2,0],[42.3,560],[TD,560]],
- education:[[TD,0],[46.2,0],[47.9,300],[TE+3,300]]};
+ education:[[TD,0],[46.2,0],[47.9,300],[TF,300]],
+ faq:[[TF,0],[TE+2,0]]};
 function keyScroll(keys,T){let y=0;for(let i=0;i<keys.length-1;i++){const[a,ya]=keys[i],[b,yb]=keys[i+1];const A=typeof ya==='string'?scrollTarget(ya):ya,B=typeof yb==='string'?scrollTarget(yb):yb;if(T<=a)return A;if(T<b)return A+(B-A)*eio((T-a)/(b-a));y=B}return y}
-function activeView(T){return T<TA+0.35?'home':T<TB+0.35?'about':T<TM+0.35?'board':T<TC+0.35?'membership':T<TD+0.35?'committees':'education'}
-function setView(v){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('act',e.id==='v-'+v));document.querySelectorAll('.pillnav a').forEach(a=>a.classList.remove('on'));if(v!=='home'){const a=$('#n-'+v);if(a)a.classList.add('on')}}
+function activeView(T){return T<TA+0.35?'home':T<TB+0.35?'about':T<TM+0.35?'board':T<TC+0.35?'membership':T<TD+0.35?'committees':T<TF+0.35?'education':'faq'}
+function setView(v){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('act',e.id==='v-'+v));document.querySelectorAll('.pillnav a').forEach(a=>a.classList.remove('on'));if(v!=='home'&&v!=='faq'){const a=$('#n-'+v);if(a)a.classList.add('on')}}
 
 // cursor path: [t,x,y] or [t,'#id']
 const path=[[0,1520,520],[4.4,1520,540],[6.0,900,400],[6.9,690,300],[7.8,760,520],[11.8,700,560],[13.0,760,560],[16.2,980,560],[18.0,1010,700],
  [19.0,'#n-about'],[TA+0.9,'#n-about'],[22.0,520,560],[24.0,760,700],[25.6,'#n-board'],[TB+0.9,'#n-board'],[28.6,520,520],[31.0,1080,640],
- [32.0,'#n-membership'],[TM+0.9,'#n-membership'],[34.6,760,330],[35.6,720,560],[36.4,'#n-committees'],[TC+0.9,'#n-committees'],[39.6,760,600],[41.8,760,560],
- [42.6,'#n-education'],[TD+0.9,'#n-education'],[45.6,900,560],[47.6,720,640],[49.0,1540,640]];
-const clicks=TRANS.map(t=>t-0.05);
-function pt(p){if(typeof p[1]==='string'){const r=document.querySelector(p[1]).getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]}return[p[1],p[2]]}
+ [32.0,'#n-membership'],[TM+0.9,'#n-membership'],[34.6,760,330],[35.6,720,560],[36.4,'#n-committees'],[TC+0.9,'#n-committees'],[39.8,560,520],[41.4,'#doc-0'],[DSEL,'#doc-1'],
+ [42.7,'#n-education'],[TD+0.9,'#n-education'],[45.6,900,560],[47.6,720,640],[50.9,720,470],
+ [51.6,'#faq-q0'],[FAQ0,'#faq-q0'],[53.9,'#faq-q1'],[FAQ1,'#faq-q1'],[56.6,'#faq-q0'],[57.4,1520,560]];
+const clicks=[...TRANS.map(t=>t-0.05),DSEL,FAQ0,FAQ1];
+function pt(p){if(typeof p[1]==='string'){const e=document.querySelector(p[1]);const r=e?e.getBoundingClientRect():null;if(!r||r.width===0)return[W/2,H*0.5];return[r.left+r.width/2,r.top+Math.min(r.height/2,34)]}return[p[1],p[2]]}
 function cursorAt(T){if(T<=path[0][0])return pt(path[0]);for(let i=0;i<path.length-1;i++){const a=path[i],b=path[i+1];if(T>=a[0]&&T<b[0]){const[ax,ay]=pt(a),[bx,by]=pt(b);const k=eio((T-a[0])/(b[0]-a[0]));return[ax+(bx-ax)*k,ay+(by-ay)*k]}}return pt(path[path.length-1])}
 
 // ---------- particles ----------
@@ -255,6 +285,11 @@ window.__frame=function(T){
  // counters
  document.querySelectorAll('.cnt2').forEach(el=>{const q=eo(seg(T,21.9,1.4));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
  document.querySelectorAll('.cnt').forEach(el=>{const q=eo(seg(T,14.4,1.5));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
+ // document select
+ const dsel=T>=DSEL?1:0;document.querySelectorAll('#docs .doc').forEach((e,i)=>e.classList.toggle('sel',i===dsel));
+ const dvt=$('#docview-title');if(dvt)dvt.textContent=D.docs[dsel][0];
+ // FAQ accordion open
+ document.querySelectorAll('#faq .q').forEach((el,i)=>{const ot=i===0?FAQ0:i===1?FAQ1:1e9;const q=eo(seg(T,ot,0.5));const b=el.querySelector('.qb');b.style.maxHeight=(q*(+b.dataset.h||120))+'px';b.style.opacity=q;el.querySelector('.chev').style.transform=`rotate(${q*180}deg)`;el.classList.toggle('open',q>0.03)});
  // transitions fade
  let vis=1;for(const tt of TRANS)vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,tt-0.45,0.9)));
  const endf=eo(seg(T,TE,0.9));vis=Math.min(vis,1-endf);

@@ -16,6 +16,12 @@ window.D={
   ['Regular','عادية','SAR 600','consultants and specialists',['Everything in Affiliate','Voting rights','Board eligibility','Directory listing']],
   ['Honorary','فخرية','By invitation','conferred by the Board',['Distinguished service','Lifetime membership','Honorary listing']]],
  stats:[['2009','Established','سنة التأسيس'],['500+','Members','عضو'],['6','Committees','لجان'],['8','Board','أعضاء المجلس'],['15+','Years','عامًا']],
- pillars:[['Clinical Excellence','التميز السريري'],['Education & Training','التعليم والتدريب'],['Research & Innovation','البحث والابتكار'],['Community Awareness','التوعية المجتمعية']]
+ pillars:[['Clinical Excellence','التميز السريري'],['Education & Training','التعليم والتدريب'],['Research & Innovation','البحث والابتكار'],['Community Awareness','التوعية المجتمعية']],
+ faq:[
+  ['How do I become a member?','كيف أنضم للجمعية؟','Choose a category — affiliate, regular or honorary — and apply online or by form. The Board reviews applications monthly.','اختر الفئة المناسبة — انتساب أو عادية أو فخرية — وقدّم طلبك إلكترونيًا أو بالنموذج. يراجع المجلس الطلبات شهريًا.'],
+  ['What does membership include?','ماذا تشمل العضوية؟','Access to educational activities, member rates at the Annual Forum, voting rights for regular members, and a listing in the members directory.','حضور الأنشطة التعليمية، وسعر الأعضاء في الملتقى السنوي، وحق التصويت للأعضاء العاملين، والإدراج في دليل الأعضاء.'],
+  ['When is the Annual Forum?','متى الملتقى السنوي؟','15–17 April 2026 in Riyadh — three days of keynote lectures, live surgery demonstrations and hands-on workshops.','١٥–١٧ أبريل ٢٠٢٦ في الرياض — ثلاثة أيام من المحاضرات الرئيسية والعمليات المباشرة وورش العمل التطبيقية.'],
+  ['How are committees formed?','كيف تُشكّل اللجان؟','Under Chapter 5 of the Basic Bylaw, the Board and the General Assembly form standing and temporary committees of three to five members.','وفق الفصل الخامس من اللائحة الأساسية، يشكّل المجلس والجمعية العمومية لجانًا دائمة ومؤقتة من ثلاثة إلى خمسة أعضاء.']
+ ]
 };
 window.PAGE=new URLSearchParams(location.search).get('p')||'home';
