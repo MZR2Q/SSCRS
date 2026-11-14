@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>demo6</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<script src="data.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{display:block;max-width:100%}a{color:inherit;text-decoration:none}ul{list-style:none}
+:root{--bg:#050B18;--ink:#F4F7FF;--dim:rgba(244,247,255,.62);--mute:rgba(244,247,255,.38);--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.1);--glow:#5B9DFF;--green:#7FE08A}
+html{scroll-behavior:auto}
+html,body{background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;font-weight:300;min-height:100%;cursor:none}
+.ar{font-family:"Noto Naskh Arabic";direction:rtl}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.vignette{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 50% 45%,transparent 40%,var(--bg) 100%);pointer-events:none}
+.top{position:fixed;top:22px;left:0;right:0;z-index:5;display:flex;justify-content:center;pointer-events:none}
+.pillnav{pointer-events:auto;display:flex;align-items:center;gap:26px;padding:10px 12px 10px 18px;border-radius:999px;background:rgba(10,18,36,.55);border:1px solid var(--line);backdrop-filter:blur(18px);font-size:14px;color:var(--dim);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.pillnav .lock{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:500;font-size:13.5px;margin-right:6px}
+.pillnav .lock img{width:28px;height:28px;border-radius:50%}
+.pillnav a.on{color:#fff}
+.pillnav .cta{background:#fff;color:#0B1A33;padding:9px 16px;border-radius:999px;font-weight:600;font-size:13.5px}
+.view{position:relative;z-index:1;display:none}.view.act{display:block}
+.hero{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:64px}
+.hero .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:20px}
+.hero h1{font-weight:300;font-size:56px;line-height:1.05;letter-spacing:-.02em;max-width:18ch}
+.hero h1 b{font-weight:500}
+.hero .sub{font-size:22px;color:var(--dim);margin:18px 0 10px}
+.hero p{font-size:16px;color:var(--mute);max-width:52ch;margin-bottom:30px}
+.btns{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;font-size:14.5px;font-weight:500;transition:none}
+.btn-w{background:#fff;color:#0B1A33}.btn-g{background:var(--glass);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(10px)}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.2em;color:var(--mute)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+section.s{padding:90px 0}
+.sh{text-align:center;margin-bottom:40px}
+.sh .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.sh h2{font-weight:300;font-size:44px;letter-spacing:-.02em;line-height:1.05}
+.ph{padding:150px 0 48px;text-align:center}
+.ph .k{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.ph h1{font-weight:300;font-size:60px;letter-spacing:-.02em;line-height:1.05}
+.ph p{color:var(--dim);max-width:60ch;margin:16px auto 0;font-size:17px}
+.g{display:grid;gap:16px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:26px;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.glass:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),transparent 40%);pointer-events:none}
+.glass.hov{border-color:rgba(255,255,255,.28);box-shadow:0 20px 60px rgba(91,157,255,.18),0 0 0 1px rgba(91,157,255,.35)}
+.glass h4{font-weight:500;font-size:17px;margin-bottom:6px}.glass p{font-size:14px;color:var(--dim)}
+.glass .m{font-size:12px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.glass .ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid var(--line);margin-bottom:18px;display:grid;place-items:center}
+.glass .ic i{width:12px;height:12px;border:1.5px solid var(--glow);border-radius:3px;display:block}
+.glass .a{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--glow)}
+.member img{border-radius:16px;aspect-ratio:4/3.6;object-fit:cover;object-position:top;margin-bottom:16px;filter:saturate(.85)}
+.member .r{color:var(--glow);font-size:13px;margin:2px 0 4px}
+.chair{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;padding:30px}
+.chair img{border-radius:18px;aspect-ratio:4/5;object-fit:cover}
+.chair h2{font-weight:400;font-size:38px;letter-spacing:-.01em;margin:10px 0 4px}
+.chair .r{color:var(--glow);font-size:15px;margin-bottom:14px}
+.chair p{color:var(--dim);font-size:15.5px;max-width:60ch}
+.tag{display:inline-block;font-size:12px;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:5px 11px;border-radius:999px;margin:12px 6px 0 0}
+.stats{display:flex;justify-content:space-between;padding:16px 30px}
+.stat b{display:block;font-weight:300;font-size:56px;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.price{font-weight:300;font-size:40px;letter-spacing:-.02em;margin:8px 0 2px}.per{font-size:13px;color:var(--mute);margin-bottom:16px}
+.checks li{font-size:14px;color:var(--dim);padding-left:18px;position:relative;margin-bottom:7px}.checks li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--green)}
+.hl{box-shadow:0 0 0 1px rgba(91,157,255,.6),0 0 60px rgba(91,157,255,.18)}
+.band{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:44px 48px}
+.band h3{font-weight:300;font-size:34px;letter-spacing:-.02em;margin:8px 0 10px}
+.band p{color:var(--dim);font-size:15px}
+footer{position:relative;z-index:1;padding:50px 0 40px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center}
+.rv{opacity:0;will-change:transform,opacity}
+#cursor{position:fixed;z-index:50;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.95);box-shadow:0 0 0 2px rgba(5,11,24,.6),0 4px 14px rgba(0,0,0,.5);pointer-events:none;transform:translate(-50%,-50%);left:-100px;top:-100px}
+#ripple{position:fixed;z-index:49;border-radius:50%;border:2px solid rgba(255,255,255,.9);pointer-events:none;transform:translate(-50%,-50%);opacity:0}
+#fade{position:fixed;inset:0;z-index:40;background:var(--bg);opacity:0;pointer-events:none}
+#end{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:140px;text-align:center;opacity:0;pointer-events:none}
+#end h2{font-weight:300;font-size:40px;letter-spacing:-.02em}#end .ar{font-size:22px;color:var(--dim);margin-top:12px}#end .k{font-size:12px;letter-spacing:.24em;color:var(--mute);margin-top:22px;text-transform:uppercase}
+</style></head><body>
+<canvas id="fx"></canvas><div class="vignette"></div>
+<div class="top rv" id="nav" data-rv="1.9" data-dy="-16"><nav class="pillnav"><a class="lock"><img src="assets/seal.png">SSCRS</a><a id="n-about">About</a><a id="n-board">Board</a><a id="n-membership">Membership</a><a id="n-committees">Committees</a><a>Education</a><a class="ar">العربية</a><a class="cta">Join</a></nav></div>
+
+<div class="view act" id="v-home">
+ <section class="hero">
+  <div class="k rv" data-rv="2.4">Saudi Society of Colon &amp; Rectal Surgery · est. 2009</div>
+  <h1 class="rv" data-rv="2.7">The national home for <b>colorectal surgical excellence</b></h1>
+  <div class="sub ar rv" data-rv="3.1">الجمعية السعودية لجراحة القولون والمستقيم</div>
+  <p class="rv" data-rv="3.35">Education, research and public awareness — organised by the surgeons of the Kingdom, for the Kingdom.</p>
+  <div class="btns rv" data-rv="3.6"><a class="btn btn-w">Become a member</a><a class="btn btn-g">Annual Forum 2026 →</a></div>
+  <div class="scroll rv" data-rv="4.4">SCROLL</div>
+ </section>
+ <section class="s" id="glance"><div class="wrap"><div class="g g4">
+  <div class="glass rv" data-rv="10.4"><div class="ic"><i></i></div><h4>Annual Forum</h4><p>The Kingdom's premier colorectal surgery gathering.</p><span class="a">Details →</span></div>
+  <div class="glass rv" data-rv="10.55"><div class="ic"><i></i></div><h4>Membership</h4><p>Affiliate, regular and honorary categories.</p><span class="a">Categories →</span></div>
+  <div class="glass rv" data-rv="10.7"><div class="ic"><i></i></div><h4>Education</h4><p>Accredited CME, workshops and the fellowship.</p><span class="a">Activities →</span></div>
+  <div class="glass rv" data-rv="10.85"><div class="ic"><i></i></div><h4>Committees &amp; regulations</h4><p>The committees, bylaws and forms.</p><span class="a">Documents →</span></div>
+ </div></div></section>
+ <section class="s" id="numbers"><div class="wrap"><div class="sh rv" data-rv="14.3"><div class="k">The society in numbers</div><h2>Measured impact, proven trust</h2></div>
+  <div class="glass stats rv" data-rv="14.6"><div class="stat"><b>2009</b><span>Established</span></div><div class="stat"><b class="cnt" data-v="500" data-s="+">0</b><span>Members</span></div><div class="stat"><b class="cnt" data-v="6">0</b><span>Committees</span></div><div class="stat"><b class="cnt" data-v="8">0</b><span>Board</span></div><div class="stat"><b class="cnt" data-v="15" data-s="+">0</b><span>Years</span></div></div></div></section>
+ <section class="s" id="board"><div class="wrap"><div class="sh rv" data-rv="18.2"><div class="k">Leadership</div><h2>Board members</h2></div>
+  <div class="glass chair rv" data-rv="18.5" id="chairc"></div>
+  <div class="g g3" style="margin-top:16px" id="mems"></div></div></section>
+ <section class="s" id="forum"><div class="wrap"><div class="glass band rv" data-rv="22.1"><div><div class="m" style="font-size:12px;color:var(--green);letter-spacing:.12em;text-transform:uppercase">Annual Forum · 15–17 April 2026 · Riyadh</div><h3>SSCRS Annual Forum 2026 — registration is open</h3><p>Three days of keynote lectures, live surgery and workshops.</p></div><a class="btn btn-w">Register</a></div></div></section>
+ <footer><div class="wrap"><span>© 2026 Saudi Society of Colon &amp; Rectal Surgery</span><span class="ar">الجمعية السعودية لجراحة القولون والمستقيم</span></div></footer>
+</div>
+
+<div class="view" id="v-board"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="25.2">Leadership</div><h1 class="rv" data-rv="25.35">Board Members</h1><p class="rv" data-rv="25.5">Distinguished surgeons and healthcare leaders from across Saudi Arabia.</p></div>
+ <div class="glass chair rv" data-rv="25.8" id="chairb"></div>
+ <div class="g g3" style="margin-top:16px" id="memsb"></div>
+ <div style="height:160px"></div>
+</div></div>
+
+<div class="view" id="v-membership"><div class="wrap">
+ <div class="ph"><div class="k rv" data-rv="34.1">Membership</div><h1 class="rv" data-rv="34.25">Join the society</h1><p class="rv" data-rv="34.4">Three categories under the Basic Bylaw.</p></div>
+ <div class="g g3" id="tiers"></div>
+ <div style="height:200px"></div>
+</div></div>
+
+<div id="fade"></div>
+<div id="end"><img src="assets/seal.png" style="width:0;height:0"><h2>Saudi Society of Colon &amp; Rectal Surgery</h2><div class="ar">الجمعية السعودية لجراحة القولون والمستقيم</div><div class="k">Direction 06 · Seal of light</div></div>
+<div id="ripple"></div><div id="cursor"></div>
+
+<script>
+const D=window.D,m=D.members,$=s=>document.querySelector(s);
+const chairHTML=`<img src="${m[0].img}"><div><span class="tag" style="margin:0">${m[0].r}</span><h2>${m[0].n}</h2><div class="r">${m[0].t}</div><p>${m[0].bio}</p><span class="tag">Founding member</span><span class="tag">Honorary Fellow, ASCRS</span><span class="tag">WHO IARC Ethics Committee</span></div>`;
+$('#chairc').innerHTML=chairHTML;$('#chairb').innerHTML=chairHTML;
+const memHTML=(t0,step)=>m.slice(1).map((x,i)=>`<div class="glass member rv" data-rv="${(t0+i*step).toFixed(2)}"><img src="${x.img}"><h4>${x.n}</h4><div class="r">${x.t}</div><p>${x.i}</p></div>`).join('');
+$('#mems').innerHTML=memHTML(18.8,.15);$('#memsb').innerHTML=memHTML(26.1,.15);
+$('#tiers').innerHTML=D.tiers.map((t,i)=>`<div class="glass rv${i==1?' hl':''}" data-rv="${(34.7+i*.15).toFixed(2)}"><div class="m">${t[0]}</div><div class="price">${t[2]}</div><div class="per">${t[3]}</div><ul class="checks">${t[4].map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn ${i==1?'btn-w':'btn-g'}" style="margin-top:18px;height:42px">Apply</a></div>`).join('');
+
+// ---------- timeline helpers ----------
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const eo=t=>1-Math.pow(1-t,3), eio=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const seg=(T,t0,d)=>clamp((T-t0)/d);
+const W=innerWidth,H=innerHeight;
+
+// views & scroll
+const TB=24.6, TM=33.5, TE=39.6;              // transitions: board, membership, end
+function scrollTarget(id){const el=document.getElementById(id);return el?el.offsetTop-96:0}
+const homeKeys=[[0,0],[7.2,0],[11.6,'glance'],[15.4,'numbers'],[19.2,'board'],[23.0,'forum'],[TB,'forum']];
+const boardKeys=[[TB,0],[29.0,0],[32.6,460],[TM,460]];
+function keyScroll(keys,T){let y=0;for(let i=0;i<keys.length-1;i++){const[a,ya]=keys[i],[b,yb]=keys[i+1];const A=typeof ya==='string'?scrollTarget(ya):ya,B=typeof yb==='string'?scrollTarget(yb):yb;if(T<=a)return A;if(T<b)return A+(B-A)*eio((T-a)/(b-a));y=B}return y}
+function activeView(T){return T<TB+0.35?'home':T<TM+0.35?'board':'membership'}
+function setView(v){document.querySelectorAll('.view').forEach(e=>e.classList.toggle('act',e.id==='v-'+v));document.querySelectorAll('.pillnav a').forEach(a=>a.classList.remove('on'));if(v!=='home'){const a=$('#n-'+v);if(a)a.classList.add('on')}}
+
+// cursor path: [t,x,y] or [t,'#id']
+const path=[[0,1520,520],[4.4,1520,540],[6.0,900,430],[6.9,690,320],[7.8,760,520],[12.2,700,560],[13.4,760,560],[16.8,980,560],[19.6,470,620],[21.2,480,640],[22.9,1010,700],[24.0,'#n-board'],[TB+0.9,'#n-board'],[28.4,520,520],[31.2,1080,640],[32.9,'#n-membership'],[TM+0.9,'#n-membership'],[35.6,760,330],[37.4,720,560],[39.0,1540,620]];
+const clicks=[TB-0.05,TM-0.05];
+function pt(p){if(typeof p[1]==='string'){const r=document.querySelector(p[1]).getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]}return[p[1],p[2]]}
+function cursorAt(T){if(T<=path[0][0])return pt(path[0]);for(let i=0;i<path.length-1;i++){const a=path[i],b=path[i+1];if(T>=a[0]&&T<b[0]){const[ax,ay]=pt(a),[bx,by]=pt(b);const k=eio((T-a[0])/(b[0]-a[0]));return[ax+(bx-ax)*k,ay+(by-ay)*k]}}return pt(path[path.length-1])}
+
+// ---------- particles ----------
+const c=$('#fx'),x=c.getContext('2d');const DPR=Math.min(devicePixelRatio||1,2);c.width=W*DPR;c.height=H*DPR;x.scale(DPR,DPR);
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const pts=[],stray=[];let ready=false;
+const img=new Image();img.src='assets/seal.png';img.onload=()=>{
+ const s=190,o=document.createElement('canvas');o.width=o.height=s;const ox=o.getContext('2d');ox.drawImage(img,0,0,s,s);const d=ox.getImageData(0,0,s,s).data;
+ for(let j=0;j<s;j++)for(let i=0;i<s;i++){const k=(j*s+i)*4;if(d[k+3]<80)continue;const r=d[k],g=d[k+1],b=d[k+2];if((r+g+b)/3>235)continue;if(rnd()<.5)continue;
+  const isG=g>r+25&&g>b+10;pts.push({u:(i/s-.5)*2,v:(j/s-.5)*2,sx:rnd()*W*1.4-W*.2,sy:rnd()*H*1.4-H*.2,ph:rnd()*6.283,sz:(rnd()*1.2+.6),g:isG,a:.55+rnd()*.45});}
+ for(let i=0;i<1600;i++)stray.push({x:rnd()*W,y:rnd()*H,a:rnd()*.22+.04,r:rnd()*1.1+.2,ph:rnd()*6.283,sp:rnd()*6+2});
+ ready=true;};
+function drawParticles(T,scrollY,view,cur){
+ x.setTransform(DPR,0,0,DPR,0,0);x.fillStyle='#050B18';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';
+ for(const s of stray){const yy=((s.y-T*s.sp)%H+H)%H,xx=s.x+Math.sin(T*.25+s.ph)*10;x.fillStyle=`rgba(120,160,255,${s.a})`;x.beginPath();x.arc(xx,yy,s.r,0,7);x.fill();}
+ const p1=eo(seg(T,0.6,2.6));                       // scatter -> seal
+ const toTop=eo(seg(T,TB-0.2,1.5));                 // seal -> top half ring
+ const toEnd=eo(seg(T,TE,1.6));                     // -> back to centre, smaller
+ const L1=[W/2,H*.31,Math.min(H*.33,290)],L2=[W/2,-70,250],L3=[W/2,H*.40,260];
+ let cx=L1[0]+(L2[0]-L1[0])*toTop,cy=L1[1]+(L2[1]-L1[1])*toTop,R=L1[2]+(L2[2]-L1[2])*toTop;
+ cx+= (L3[0]-cx)*toEnd; cy+=(L3[1]-cy)*toEnd; R+=(L3[2]-R)*toEnd;
+ const k=(view==='home'?clamp(scrollY/1000)*0.9:0)*(1-toTop);      // spread with scroll on home
+ const par=view==='home'?-scrollY*0.55:0;
+ const alphaK=1-k*0.85;
+ for(const p of pts){
+  let tx=cx+p.u*R, ty=cy+p.v*R+par;
+  tx=cx+(tx-cx)*(1+k); ty=(cy+par)+(ty-(cy+par))*(1+k);
+  let px=p.sx+(tx-p.sx)*p1, py=p.sy+(ty-p.sy)*p1;
+  px+=Math.sin(T*1.1+p.ph)*2.2; py+=Math.cos(T*.9+p.ph)*2.2;
+  if(cur){const dx=px-cur[0],dy=py-cur[1],d=Math.hypot(dx,dy);if(d<150&&d>0.1){const f=(150-d)/150*34;px+=dx/d*f;py+=dy/d*f;}}
+  const a=p.a*alphaK*(0.35+0.65*p1);
+  x.fillStyle=p.g?`rgba(127,224,138,${a})`:`rgba(110,165,255,${a*.9})`;x.beginPath();x.arc(px,py,p.sz*(1+toEnd*.2),0,7);x.fill();}
+ const gcy=cy+par;const gr=x.createRadialGradient(cx,gcy,R*.2,cx,gcy,R*1.7);gr.addColorStop(0,`rgba(91,157,255,${.24*p1*alphaK})`);gr.addColorStop(1,'rgba(91,157,255,0)');x.fillStyle=gr;x.fillRect(0,0,W,H);
+ x.globalCompositeOperation='source-over';}
+
+// ---------- frame ----------
+const rvs=[...document.querySelectorAll('.rv')];
+window.__frame=function(T){
+ const view=activeView(T);setView(view);
+ const y=view==='home'?keyScroll(homeKeys,T):view==='board'?keyScroll(boardKeys,T):0;window.scrollTo(0,y);
+ // reveals
+ for(const el of rvs){const t0=+el.dataset.rv,dy=+(el.dataset.dy||26);const q=eo(seg(T,t0,.8));el.style.opacity=q;el.style.transform=`translateY(${(1-q)*dy}px)`;}
+ // hero parallax/fade on scroll
+ const hp=clamp(y/520);$('#v-home .hero').style.transform=`translateY(${-y*0.25}px)`;$('#v-home .hero').style.opacity=1-hp;
+ // counters
+ document.querySelectorAll('.cnt').forEach(el=>{const q=eo(seg(T,14.9,1.5));el.textContent=Math.round(+el.dataset.v*q)+(q>=1?(el.dataset.s||''):'')});
+ // transitions fade
+ let vis=1;vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,TB-0.45,0.9)));vis=Math.min(vis,1-Math.sin(Math.PI*seg(T,TM-0.45,0.9)));
+ const endf=eo(seg(T,TE,0.9));vis=Math.min(vis,1-endf);
+ document.querySelectorAll('.view').forEach(v=>v.style.opacity=vis);
+ $('#nav').style.opacity=Math.min(+$('#nav').style.opacity||0,1-endf);
+ $('#end').style.opacity=eo(seg(T,TE+1.1,1.0));
+ // cursor + hover + ripple
+ const cur=cursorAt(T);$('#cursor').style.left=cur[0]+'px';$('#cursor').style.top=cur[1]+'px';
+ document.querySelectorAll('.glass.hov').forEach(e=>e.classList.remove('hov'));
+ const under=document.elementFromPoint(cur[0],cur[1]);const gl=under&&under.closest&&under.closest('.glass');if(gl&&T>5)gl.classList.add('hov');
+ let rip=0,rs=0;for(const tc of clicks){const q=seg(T,tc,0.55);if(q>0&&q<1){rip=1-q;rs=12+70*q}}const R=$('#ripple');R.style.opacity=rip;R.style.width=R.style.height=rs+'px';R.style.left=cur[0]+'px';R.style.top=cur[1]+'px';
+ $('#cursor').style.transform=`translate(-50%,-50%) scale(${rip>0?0.8:1})`;
+ if(ready)drawParticles(T,y,view,T>5?cur:null);
+ return ready;};
+</script></body></html>
