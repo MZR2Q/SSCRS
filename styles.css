@@ -45,6 +45,7 @@
   --grey-500:  #8A94A6;
   --grey-700:  #4B5565;
   --green-800: #2F6321;
+  --green-900: #2F5A24;   /* deep palm green — feature plates */
   --teal-900:  #0F4A52;
   --slate-900: #2A3446;
 
@@ -653,30 +654,26 @@ html[lang="ar"] .hero-en { font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight
 .member-feature {
   display: grid; grid-template-columns: 330px 1fr;
   border-radius: var(--r-xl); overflow: hidden;
-  background: linear-gradient(150deg, var(--navy-800) 0%, var(--navy-900) 70%);
-  box-shadow: var(--shadow-lg); position: relative;
+  background: var(--green-900);
+  box-shadow: var(--shadow-md); position: relative;
 }
-.member-feature-photo { position: relative; background: var(--navy-900); }
+.member-feature-photo { position: relative; background: var(--green-900); }
 .member-feature-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.member-feature-photo::after {
-  content: ""; position: absolute; inset: 0;
-  box-shadow: inset 0 0 0 4px var(--green);
-}
 .member-feature-body {
   position: relative; z-index: 1;
   padding: 40px 42px; display: flex; flex-direction: column; justify-content: center;
 }
 .member-role.is-chair {
-  align-self: flex-start; background: var(--green); color: #fff;
+  align-self: flex-start; background: rgba(255,255,255,.14); color: #fff;
   padding: 6px 15px; border-radius: var(--r-pill);
   font-size: 12.5px; font-weight: 600; margin-bottom: 16px;
 }
 .member-feature-body h3 { font-size: 1.75rem; color: #fff; margin-bottom: 8px; }
 .member-feature-spec {
-  font-size: 14.5px; font-weight: 600; color: #B9E5A8; margin-bottom: 16px;
+  font-size: 14.5px; font-weight: 600; color: #9FD88B; margin-bottom: 16px;
 }
 .member-feature-bio {
-  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.76);
+  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.88);
   max-width: 62ch; margin-bottom: 22px;
 }
 .member-creds { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -1624,6 +1621,15 @@ a.tier-btn:hover { border-color: var(--navy); background: var(--tint-navy); }
 
 /* Hero seal sits centred over the identity column */
 @media (min-width: 1081px) { .hero-seal { align-self: center; } }
+
+/* Seal plate — the soft green disc behind the hero seal */
+.hero-seal-plate {
+  display: grid; place-items: center; border-radius: 50%;
+  padding: 36px; margin-bottom: 26px; background: var(--wash-green);
+}
+.hero-seal-plate .hero-seal { margin-bottom: 0; filter: drop-shadow(0 8px 18px rgba(11,36,68,.12)); }
+@media (min-width: 1081px) { .hero-seal-plate { align-self: center; } }
+@media (max-width: 640px) { .hero-seal-plate { padding: 24px; margin-bottom: 18px; } }
 
 /* Current page inside the About menu lights the trigger too */
 .nav-group:has(a[aria-current="page"]) .nav-trigger { background: var(--wash-navy); color: var(--navy); }
