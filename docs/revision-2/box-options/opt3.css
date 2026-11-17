@@ -1,0 +1,47 @@
+/* 3 — White cards with green details: the most minimal */
+
+.hero-slider{background:#FFFFFF url("sscrs-seal.png") no-repeat right 78px top 34px / 132px;box-shadow:0 1px 2px rgba(11,36,68,.04), 0 10px 30px rgba(11,36,68,.06);border:1px solid #E3E9E1}
+[dir="rtl"] .hero-slider{background-position:left 78px top 34px}
+.hs-img{display:none}.hs-slide::after{display:none}
+.hs-title{color:#101B2B}.hs-when{color:#56637A}
+.hs-kind{background:#E7F1E2;color:#3C7A2A;backdrop-filter:none}
+.hs-arrow{background:#F6FAF4;border-color:#E3E9E1;color:#101B2B;backdrop-filter:none}
+.hs-dot{background:#E3E9E1}.hs-dot.is-active{background:#3C7A2A}
+.numbers-panel{background:#FFFFFF;box-shadow:0 1px 2px rgba(11,36,68,.04), 0 10px 30px rgba(11,36,68,.06);border:1px solid #E3E9E1}
+.numbers-panel h2{color:#101B2B}
+.numbers-panel .eyebrow-dark{background:#E7F1E2;color:#3C7A2A}
+.num-card{background:#F6FAF4;border-color:#E3E9E1}.num-card:hover{background:#F6FAF4}
+.num-val{color:#3C7A2A}.num-val sup{color:#3C7A2A}.num-label{color:#56637A}
+.goals-band{background:#FFFFFF;box-shadow:0 1px 2px rgba(11,36,68,.04), 0 10px 30px rgba(11,36,68,.06);border:1px solid #E3E9E1}
+.goals-head h3{color:#101B2B}
+.goals-band .vmg-tag.is-onDark{background:#E7F1E2;color:#3C7A2A}
+.goal{color:#56637A;border-top-color:#E3E9E1}.goal:hover{color:#101B2B;border-top-color:#3C7A2A}
+.goal-num{color:#3C7A2A}
+.tier-card.is-honorary{background:#FFFFFF;box-shadow:0 1px 2px rgba(11,36,68,.04), 0 10px 30px rgba(11,36,68,.06);border-color:#E3E9E1}
+.tier-card.is-honorary .tier-for{background:#3C7A2A;color:#fff}
+.tier-card.is-honorary h3{color:#101B2B}
+.tier-card.is-honorary .tier-lead{color:#56637A;border-bottom-color:#E3E9E1}
+.tier-card.is-honorary .tier-list li{color:#56637A}
+.tier-card.is-honorary .tier-list li::before{background-color:#E7F1E2}
+.tier-card.is-honorary .tier-btn.is-static{border-color:#E3E9E1;color:#56637A}
+.tier-badge{background-color:#3C7A2A;border-color:#3C7A2A}
+.conf-next{background:#FFFFFF;color:#101B2B;box-shadow:0 1px 2px rgba(11,36,68,.04), 0 10px 30px rgba(11,36,68,.06);border:1px solid #E3E9E1}
+.conf-next::after{display:none}
+.conf-kicker{background:#3C7A2A}
+.conf-next h3{color:#101B2B}.conf-theme{color:#56637A}
+.conf-facts li{color:#101B2B}.conf-fact-ic{background:#E7F1E2;color:#3C7A2A}
+.conf-next .btn-ghost{background:transparent;color:#101B2B;border-color:#E3E9E1}
+.conf-dates{background:#F6FAF4;border-color:#E3E9E1;backdrop-filter:none}
+.conf-dates-h{color:#3C7A2A}.conf-dates dl>div{border-top-color:#E3E9E1}
+.conf-dates dt{color:#56637A}.conf-dates dd{color:#101B2B}
+.news-thumb{background:#FFFFFF}.news-thumb svg{filter:none}
+.site-footer{background:#F7F9F6;color:#56637A;border-top:1px solid #E3E9E1}
+.footer-identity svg{filter:none}
+.footer-identity .lockup-ar,.footer-identity .lockup-en{color:#101B2B}.footer-identity .lockup-est{color:#56637A}
+.footer-about p{color:#56637A}.footer-col h5{color:#101B2B}.footer-col a:hover{color:#3C7A2A}
+.footer-bottom{border-top-color:#E3E9E1}.footer-legal a:hover{color:#101B2B}
+.footer-social a{background:#F6FAF4;border-color:#E3E9E1;color:#3C7A2A}
+.quad{background:#fff!important;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.quad::after{display:none}
+.quad strong{color:var(--ink)}.quad-desc{color:var(--body)}.quad-cta{color:#3C7A2A}
+.quad-icon{background:#E7F1E2;border-color:transparent;color:#3C7A2A}

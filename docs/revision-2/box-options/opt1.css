@@ -1,0 +1,26 @@
+/* 1 — Deep palm green, flat: every dark navy panel takes the chair-card green */
+
+.hero-slider{background:#2F5A24}
+.hs-img{filter:hue-rotate(-95deg) saturate(.7)}
+.hs-slide::after{background:linear-gradient(180deg,rgba(47,90,36,.10) 20%,rgba(47,90,36,.72) 62%,rgba(38,74,29,.95) 100%)}
+.hs-kind{color:#DDF1D5}
+.hs-cta{background:#fff!important;color:#2F5A24!important;border-color:#fff!important;box-shadow:none!important}
+.hs-dot.is-active{background:#fff}
+.numbers-panel{background:#2F5A24;box-shadow:var(--shadow-md)}
+.num-val sup{color:#B9E5A8}
+.goals-band{background:#2F5A24;box-shadow:var(--shadow-md)}
+.goal-num{color:#B9E5A8}.goal:hover{border-top-color:#B9E5A8}
+.tier-card.is-honorary{background:#2F5A24;box-shadow:var(--shadow-md)}
+.tier-card.is-honorary .tier-for{background:rgba(255,255,255,.16)}
+.conf-next{background:#2F5A24;box-shadow:var(--shadow-md)}
+.conf-next::after{display:none}
+.conf-kicker{background:rgba(255,255,255,.16)}
+.conf-next .btn-green{background:#fff;color:#2F5A24;border-color:#fff;box-shadow:none}
+.news-thumb{background:#2F5A24}
+.site-footer{background:#2F5A24;color:rgba(255,255,255,.78)}
+.footer-about p{color:rgba(255,255,255,.72)}
+.footer-col a:hover{color:#C9EBBB}
+.quad{background:#fff!important;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.quad::after{display:none}
+.quad strong{color:var(--ink)}.quad-desc{color:var(--body)}.quad-cta{color:#3C7A2A}
+.quad-icon{background:#E7F1E2;border-color:transparent;color:#3C7A2A}

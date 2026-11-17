@@ -1,0 +1,47 @@
+/* 4 — Sky wash: keeps the blue identity, drops the darkness */
+
+.hero-slider{background:#EAF1FB url("sscrs-seal.png") no-repeat right 78px top 34px / 132px;box-shadow:none;border:1px solid #D5E2F4}
+[dir="rtl"] .hero-slider{background-position:left 78px top 34px}
+.hs-img{display:none}.hs-slide::after{display:none}
+.hs-title{color:#0B2444}.hs-when{color:#4B5A72}
+.hs-kind{background:#DCE8F8;color:#1B4C93;backdrop-filter:none}
+.hs-arrow{background:#FFFFFF;border-color:#D5E2F4;color:#0B2444;backdrop-filter:none}
+.hs-dot{background:#D5E2F4}.hs-dot.is-active{background:#1B4C93}
+.numbers-panel{background:#EAF1FB;box-shadow:none;border:1px solid #D5E2F4}
+.numbers-panel h2{color:#0B2444}
+.numbers-panel .eyebrow-dark{background:#DCE8F8;color:#1B4C93}
+.num-card{background:#FFFFFF;border-color:#D5E2F4}.num-card:hover{background:#FFFFFF}
+.num-val{color:#1B4C93}.num-val sup{color:#1B4C93}.num-label{color:#4B5A72}
+.goals-band{background:#EAF1FB;box-shadow:none;border:1px solid #D5E2F4}
+.goals-head h3{color:#0B2444}
+.goals-band .vmg-tag.is-onDark{background:#DCE8F8;color:#1B4C93}
+.goal{color:#4B5A72;border-top-color:#D5E2F4}.goal:hover{color:#0B2444;border-top-color:#1B4C93}
+.goal-num{color:#1B4C93}
+.tier-card.is-honorary{background:#EAF1FB;box-shadow:none;border-color:#D5E2F4}
+.tier-card.is-honorary .tier-for{background:#1B4C93;color:#fff}
+.tier-card.is-honorary h3{color:#0B2444}
+.tier-card.is-honorary .tier-lead{color:#4B5A72;border-bottom-color:#D5E2F4}
+.tier-card.is-honorary .tier-list li{color:#4B5A72}
+.tier-card.is-honorary .tier-list li::before{background-color:#DCE8F8}
+.tier-card.is-honorary .tier-btn.is-static{border-color:#D5E2F4;color:#4B5A72}
+.tier-badge{background-color:#1B4C93;border-color:#1B4C93}
+.conf-next{background:#EAF1FB;color:#0B2444;box-shadow:none;border:1px solid #D5E2F4}
+.conf-next::after{display:none}
+.conf-kicker{background:#1B4C93}
+.conf-next h3{color:#0B2444}.conf-theme{color:#4B5A72}
+.conf-facts li{color:#0B2444}.conf-fact-ic{background:#DCE8F8;color:#1B4C93}
+.conf-next .btn-ghost{background:transparent;color:#0B2444;border-color:#D5E2F4}
+.conf-dates{background:#FFFFFF;border-color:#D5E2F4;backdrop-filter:none}
+.conf-dates-h{color:#1B4C93}.conf-dates dl>div{border-top-color:#D5E2F4}
+.conf-dates dt{color:#4B5A72}.conf-dates dd{color:#0B2444}
+.news-thumb{background:#EAF1FB}.news-thumb svg{filter:none}
+.site-footer{background:#F3F7FC;color:#4B5A72;border-top:1px solid #D5E2F4}
+.footer-identity svg{filter:none}
+.footer-identity .lockup-ar,.footer-identity .lockup-en{color:#0B2444}.footer-identity .lockup-est{color:#4B5A72}
+.footer-about p{color:#4B5A72}.footer-col h5{color:#0B2444}.footer-col a:hover{color:#1B4C93}
+.footer-bottom{border-top-color:#D5E2F4}.footer-legal a:hover{color:#0B2444}
+.footer-social a{background:#FFFFFF;border-color:#D5E2F4;color:#1B4C93}
+.quad{background:#fff!important;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.quad::after{display:none}
+.quad strong{color:var(--ink)}.quad-desc{color:var(--body)}.quad-cta{color:#1B4C93}
+.quad-icon{background:#E7EFFA;border-color:transparent;color:#1B4C93}

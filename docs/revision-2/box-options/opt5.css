@@ -1,0 +1,38 @@
+/* 5 — Hierarchy mix: one deep-green anchor per page, mint for the rest */
+
+.hero-slider{background:#2F5A24}
+.hs-img{filter:hue-rotate(-95deg) saturate(.7)}
+.hs-slide::after{background:linear-gradient(180deg,rgba(47,90,36,.10) 20%,rgba(47,90,36,.72) 62%,rgba(38,74,29,.95) 100%)}
+.hs-kind{color:#DDF1D5}
+.hs-cta{background:#fff!important;color:#2F5A24!important;border-color:#fff!important;box-shadow:none!important}
+.hs-dot.is-active{background:#fff}
+.conf-next{background:#2F5A24;box-shadow:var(--shadow-md)}
+.conf-next::after{display:none}
+.conf-kicker{background:rgba(255,255,255,.16)}
+.conf-next .btn-green{background:#fff;color:#2F5A24;border-color:#fff;box-shadow:none}
+.site-footer{background:#2F5A24;color:rgba(255,255,255,.78)}
+.footer-about p{color:rgba(255,255,255,.72)}
+.footer-col a:hover{color:#C9EBBB}
+.numbers-panel{background:#E7F1E2;box-shadow:none;border:1px solid #D3E5CB}
+.numbers-panel h2{color:#1E2A22}
+.numbers-panel .eyebrow-dark{background:#D6E9CD;color:#3C7A2A}
+.num-card{background:#FFFFFF;border-color:#D3E5CB}.num-card:hover{background:#FFFFFF}
+.num-val{color:#3C7A2A}.num-val sup{color:#3C7A2A}.num-label{color:#4A5A4E}
+.goals-band{background:#E7F1E2;box-shadow:none;border:1px solid #D3E5CB}
+.goals-head h3{color:#1E2A22}
+.goals-band .vmg-tag.is-onDark{background:#D6E9CD;color:#3C7A2A}
+.goal{color:#4A5A4E;border-top-color:#D3E5CB}.goal:hover{color:#1E2A22;border-top-color:#3C7A2A}
+.goal-num{color:#3C7A2A}
+.tier-card.is-honorary{background:#E7F1E2;box-shadow:none;border-color:#D3E5CB}
+.tier-card.is-honorary .tier-for{background:#3C7A2A;color:#fff}
+.tier-card.is-honorary h3{color:#1E2A22}
+.tier-card.is-honorary .tier-lead{color:#4A5A4E;border-bottom-color:#D3E5CB}
+.tier-card.is-honorary .tier-list li{color:#4A5A4E}
+.tier-card.is-honorary .tier-list li::before{background-color:#D6E9CD}
+.tier-card.is-honorary .tier-btn.is-static{border-color:#D3E5CB;color:#4A5A4E}
+.tier-badge{background-color:#3C7A2A;border-color:#3C7A2A}
+.news-thumb{background:#E7F1E2}.news-thumb svg{filter:none}
+.quad{background:#fff!important;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.quad::after{display:none}
+.quad strong{color:var(--ink)}.quad-desc{color:var(--body)}.quad-cta{color:#3C7A2A}
+.quad-icon{background:#E7F1E2;border-color:transparent;color:#3C7A2A}
