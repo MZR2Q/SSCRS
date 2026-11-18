@@ -35,18 +35,6 @@ P=[]; pg=[0]
 def page(body,cls=''):
     pg[0]+=1; P.append(f'<section class="page {cls}">{body}<div class="foot"><span>SSCRS — تعديلات الوضع الحالي</span><span class="num">{pg[0]}</span></div></section>')
 
-# 1 — cover
-page('''<div class="cover">
- <div class="k">الجمعية السعودية لجراحة القولون والمستقيم · مراجعة ثانية</div>
- <h1>تعديلات الوضع الحالي</h1>
- <p class="lead">اعتمد المجلس التصميم الحالي مع أربع ملاحظات. هذا الملف يعرض ما طُبِّق منها فعلًا، والخيارات المطلوب الاختيار منها.</p>
- <div class="items">
-  <div class="it done"><b>١</b><div><h3>الدائرة الخضراء خلف الشعار</h3><p>مأخوذة من الأسلوب ٣ ومطبّقة على الصفحة الرئيسية.</p></div><span>تم التطبيق</span></div>
-  <div class="it done"><b>٢</b><div><h3>بطاقة رئيسة مجلس الإدارة</h3><p>بطاقة أ.د. سمر الحمود بأخضر الأسلوب ٣ بدل الكحلي الداكن.</p></div><span>تم التطبيق</span></div>
-  <div class="it"><b>٣</b><div><h3>الناف بار</h3><p>عشرة مقترحات أكبر وأوضح، كلٌّ بثلاث حالات: عادي، تحويم، قائمة منسدلة — ثم نسختها العربية.</p></div><span>للاختيار (١–١٠)</span></div>
-  <div class="it"><b>٤</b><div><h3>البوكسات الزرقاء الداكنة</h3><p>خمس معالجات لتخفيفها وتبسيطها باتجاه الأخضر.</p></div><span>للاختيار (١–٥)</span></div>
- </div></div>''','coverp')
-
 # 2,3 — applied before/after
 for title,note,b,a in [
  ('تم التطبيق ١ — الدائرة الخضراء خلف الشعار','الشعار في الهيرو صار على قرص أخضر فاتح كما في الأسلوب ٣، مع تخفيف الظل تحته.',os.path.join(OLD,'home.png'),os.path.join(W,'shots','after-home.png')),
@@ -100,19 +88,9 @@ for o in range(0,6):
     ca=(avail-gap)/(r('home')+r('tier')); cb=(avail-3*gap)/(r('numbers')+r('goals')+r('conf')+r('footer'))
     col=min(132.0,ca,cb)
     fig=lambda n:f'<div class="frame"><img src="{im[n][0]}"></div>'
-    head=(f'<h2>{name}</h2><span class="tag">مرجع</span>' if o==0 else f'<h2><i>معالجة {A(o)}</i>{name}</h2><span class="tag">{"الموصى بها" if o==5 else "البوكسات الزرقاء → "+name}</span>')
+    head=(f'<h2>{name}</h2><span class="tag">مرجع</span>' if o==0 else f'<h2><i>معالجة {A(o)}</i>{name}</h2><span class="tag">{"البوكسات الزرقاء → "+name}</span>')
     page(f'''<div class="head">{head}</div><p class="idea">{idea}{"" if o==0 else " في كل المعالجات تتحول بلاطات الرئيسية الأربع الملوّنة إلى بطاقات بيضاء بأيقونة ملوّنة."}</p>
  <div class="boxes" style="grid-template-columns:{col:.1f}mm {col:.1f}mm"><div class="bc">{fig('home')}{fig('tier')}</div><div class="bc">{fig('numbers')}{fig('goals')}{fig('conf')}{fig('footer')}</div></div>''')
-
-# closing
-page('''<div class="cover">
- <div class="k">الخطوة التالية</div><h1 style="font-size:26pt">المطلوب رقمان فقط</h1>
- <p class="lead">رقم الناف بار (١–١٠) ورقم معالجة البوكسات (١–٥). وبعدها تُطبَّق على الموقع الحالي مباشرة، على كل الصفحات وباللغتين.</p>
- <div class="items">
-  <div class="it"><b>أ</b><div><h3>اقتراحنا للناف بار: ١ أو ٦</h3><p>«الواضح الكبير» (١) أقرب للحالي وأسهل قراءةً. «الشريط الأخضر» (٦) أقوى حضورًا وينسجم مع الاتجاه نحو الأخضر، ويعطي اسم الجمعية سطرًا كاملًا.</p></div><span>توصية</span></div>
-  <div class="it"><b>ب</b><div><h3>اقتراحنا للبوكسات: ٥</h3><p>«المزيج المتدرّج» يزيل الدكانة من أغلب العناصر ويُبقي عنصرًا واحدًا بارزًا في كل صفحة، وهو متّسق مع بطاقة الرئيسة المعتمدة.</p></div><span>توصية</span></div>
-  <div class="it"><b>ج</b><div><h3>ملاحظة</h3><p>يمكن الجمع: مثلًا شكل ناف بار مع خط ناف بار آخر. الخلفيات في صور الناف بار هي الصفحة الرئيسية الحالية بشفافية للسياق فقط.</p></div><span>&nbsp;</span></div>
- </div></div>''','coverp')
 
 CSS='''@page{size:A4 landscape;margin:0}*{box-sizing:border-box;margin:0;padding:0}
 :root{--ink:#0B2444;--navy:#1B4C93;--green:#3C7A2A;--deep:#2F5A24;--mint:#E7F1E2;--muted:#6B778C;--line:#E0E6EE;--g50:#F5F7FA}
